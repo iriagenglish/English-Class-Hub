@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Class Hub 🌸</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --pink1:#FFD6E0;--pink2:#FFACC7;--red1:#FF8FA3;--red2:#FF6B81;
+  --white:#fff;--shadow:0 4px 20px rgba(255,107,129,0.15);
+  --shadow2:0 2px 10px rgba(255,107,129,0.2);
+  --text:#5a3a4a;--text2:#8a6070;--bg:#fff9fb;
+}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--pink1)}::-webkit-scrollbar-thumb{background:var(--red1);border-radius:3px}
+.section{display:none;animation:fadeIn .4s ease}.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+/* LOGIN */
+#loginSection{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--pink1) 0%,var(--pink2) 50%,var(--red1) 100%)}
+.login-box{background:var(--white);border-radius:30px;padding:50px 40px;max-width:420px;width:90%;box-shadow:0 20px 60px rgba(255,107,129,0.3);text-align:center}
+.login-logo{font-size:52px;margin-bottom:10px}.login-title{font-size:28px;font-weight:800;color:var(--red2);margin-bottom:5px}
+.login-subtitle{color:var(--text2);font-size:14px;margin-bottom:30px}
+.input-group{margin-bottom:18px;text-align:left}
+.input-group label{display:block;font-weight:700;font-size:13px;color:var(--text2);margin-bottom:6px}
+.input-group input{width:100%;padding:12px 18px;border:2px solid var(--pink1);border-radius:12px;font-family:'Nunito',sans-serif;font-size:15px;outline:none;transition:.3s}
+.input-group input:focus{border-color:var(--red1);box-shadow:0 0 0 3px rgba(255,143,163,0.2)}
+.btn{padding:13px 30px;border:none;border-radius:14px;font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;cursor:pointer;transition:.3s}
+.btn-primary{background:linear-gradient(135deg,var(--red1),var(--red2));color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,107,129,0.4)}
+.btn-secondary{background:var(--pink1);color:var(--red2)}.btn-secondary:hover{background:var(--pink2)}
+.btn-danger{background:#ff4d6d;color:#fff}.btn-danger:hover{background:#e03050}
+.btn-success{background:#4caf50;color:#fff}.btn-success:hover{background:#388e3c}
+.btn-sm{padding:8px 16px;font-size:13px;border-radius:10px}
+.btn-xs{padding:5px 10px;font-size:12px;border-radius:8px}
+.btn-full{width:100%}
+.login-error{color:#e03050;font-size:13px;margin-top:10px;display:none}
+/* NAVBAR */
+#navbar{background:var(--white);box-shadow:var(--shadow2);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{font-weight:800;font-size:18px;color:var(--red2);display:flex;align-items:center;gap:8px}
+.nav-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.nav-user{font-size:13px;color:var(--text2);font-weight:600}
+.nav-btn{background:var(--pink1);border:none;border-radius:10px;padding:8px 14px;cursor:pointer;font-size:13px;font-weight:700;color:var(--red2);transition:.2s}
+.nav-btn:hover{background:var(--pink2)}
+/* MAIN */
+#mainApp{display:none}#mainApp.visible{display:block}
+.container{max-width:1100px;margin:0 auto;padding:24px 20px}
+/* CARDS */
+.card{background:var(--white);border-radius:20px;padding:24px;box-shadow:var(--shadow);margin-bottom:20px}
+.card-title{font-size:18px;font-weight:800;color:var(--red2);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+/* DASHBOARD */
+.welcome-banner{background:linear-gradient(135deg,var(--pink1),var(--pink2));border-radius:20px;padding:28px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.welcome-text h2{font-size:24px;font-weight:800;color:var(--red2)}.welcome-text p{color:var(--text2);font-size:14px;margin-top:4px}
+.streak-badge{background:var(--white);border-radius:16px;padding:14px 20px;text-align:center;box-shadow:var(--shadow2)}
+.streak-badge .num{font-size:28px;font-weight:800;color:var(--red2)}.streak-badge .lbl{font-size:12px;color:var(--text2);font-weight:600}
+.levels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:24px}
+.level-card{background:var(--white);border-radius:18px;padding:20px;box-shadow:var(--shadow);cursor:pointer;transition:.3s;border:2px solid transparent}
+.level-card:hover{border-color:var(--red1);transform:translateY(-3px)}
+/* PROGRESS */
+.progress-wrap{margin-bottom:12px}
+.progress-label{display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:4px}
+.progress-bar{background:var(--pink1);border-radius:10px;height:10px;overflow:hidden}
+.progress-fill{background:linear-gradient(90deg,var(--red1),var(--red2));height:100%;border-radius:10px;transition:width .6s ease}
+/* SKILL TABS */
+.skill-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.skill-tab{padding:10px 20px;border-radius:14px;border:2px solid var(--pink1);background:var(--white);font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:var(--text2);cursor:pointer;transition:.2s}
+.skill-tab:hover{border-color:var(--red1);color:var(--red2)}.skill-tab.active{background:linear-gradient(135deg,var(--red1),var(--red2));color:#fff;border-color:transparent}
+/* UNIT LIST */
+.unit-list{display:grid;gap:12px}
+.unit-item{background:var(--white);border-radius:16px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow2);cursor:pointer;transition:.3s;border:2px solid transparent}
+.unit-item:hover{border-color:var(--red1);transform:translateX(4px)}.unit-item.completed{border-color:#4caf50;background:#f0fff4}.unit-item.locked{opacity:.5;cursor:not-allowed}
+.unit-info h4{font-size:15px;font-weight:700;color:var(--text)}.unit-info p{font-size:12px;color:var(--text2);margin-top:2px}
+.unit-score{font-size:13px;font-weight:700;color:var(--red2)}
+/* EXERCISE */
+.exercise-area{max-width:700px;margin:0 auto}
+.ex-header{margin-bottom:20px}
+.ex-header h2{font-size:22px;font-weight:800;color:var(--red2)}.ex-header p{color:var(--text2);font-size:14px;margin-top:4px}
+/* EXTERNAL LINK BUTTON */
+.ext-link-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:14px;text-decoration:none;font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;margin-bottom:20px;transition:.3s;box-shadow:0 4px 15px rgba(102,126,234,0.4)}
+.ext-link-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(102,126,234,0.5)}
+/* QUESTION CARDS */
+.question-card{background:var(--white);border-radius:20px;padding:24px;box-shadow:var(--shadow);margin-bottom:16px}
+.question-num{font-size:11px;color:var(--text2);font-weight:700;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.question-type-badge{display:inline-block;font-size:10px;background:var(--pink1);color:var(--red2);padding:2px 8px;border-radius:10px;font-weight:700;margin-left:8px}
+.question-text{font-size:16px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.5}
+.options{display:grid;gap:10px}
+.option{padding:12px 18px;border:2px solid var(--pink1);border-radius:12px;cursor:pointer;font-family:'Nunito',sans-serif;font-size:15px;font-weight:600;transition:.2s;text-align:left;background:var(--white);color:var(--text)}
+.option:hover{border-color:var(--red1);background:var(--pink1)}.option.selected{border-color:var(--red2);background:var(--pink1)}
+.option.correct{border-color:#4caf50;background:#e8f5e9;color:#2e7d32}.option.wrong{border-color:#f44336;background:#ffebee;color:#c62828}
+.fill-input{width:100%;padding:12px 18px;border:2px solid var(--pink1);border-radius:12px;font-family:'Nunito',sans-serif;font-size:15px;outline:none;transition:.3s}
+.fill-input:focus{border-color:var(--red1)}.fill-input.correct{border-color:#4caf50;background:#e8f5e9}.fill-input.wrong{border-color:#f44336;background:#ffebee}
+/* WORD BANK GAP */
+.sentence-with-gaps{font-size:16px;font-weight:600;line-height:2.2;margin-bottom:12px}
+.gap-slot{display:inline-block;min-width:90px;border-bottom:3px solid var(--red1);padding:2px 8px;cursor:pointer;text-align:center;font-weight:700;color:var(--red2);background:var(--pink1);border-radius:6px;margin:0 4px}
+.gap-slot.empty{color:var(--text2);background:transparent;border-radius:0}
+.word-bank-pool{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;padding:12px;background:var(--bg);border-radius:12px;border:2px dashed var(--pink2)}
+.bank-word{padding:7px 16px;background:var(--pink2);border-radius:10px;cursor:pointer;font-weight:700;font-size:14px;color:var(--red2);transition:.2s}
+.bank-word:hover{background:var(--red1);color:#fff}.bank-word.used{opacity:.4;cursor:not-allowed;pointer-events:none}
+/* SENTENCE ORDER */
+.sent-order-pool{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;padding:12px;background:var(--bg);border-radius:12px}
+.sent-order-area{display:flex;flex-wrap:wrap;gap:8px;min-height:48px;padding:12px;background:var(--white);border-radius:12px;border:2px dashed var(--red1)}
+.word-tile{padding:8px 16px;background:var(--pink2);border-radius:10px;cursor:pointer;font-weight:700;font-size:14px;color:var(--red2);user-select:none;transition:.2s}
+.word-tile:hover{background:var(--red1);color:#fff}.word-tile.placed{background:var(--red2);color:#fff}
+/* DRAG MATCH */
+.match-container{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:12px}
+.match-col{display:flex;flex-direction:column;gap:8px}
+.match-item{padding:10px 14px;border-radius:12px;font-weight:700;font-size:14px;border:2px solid var(--pink1);background:var(--white);cursor:pointer}
+.match-item.left{background:var(--pink1);border-color:var(--pink2)}.match-item.right{border-color:var(--red1)}
+.match-item.selected{border-color:var(--red2);background:var(--pink2)}.match-item.matched{border-color:#4caf50;background:#e8f5e9}
+/* DROPDOWN GAP */
+.gap-select{padding:4px 8px;border:2px solid var(--red1);border-radius:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;color:var(--text);background:var(--white);cursor:pointer;outline:none}
+.gap-select:focus{box-shadow:0 0 0 3px rgba(255,143,163,0.3)}
+/* ERROR CORRECTION */
+.error-text{font-size:16px;line-height:1.8;margin-bottom:12px;padding:14px;background:var(--bg);border-radius:10px;border-left:4px solid var(--red1)}
+/* KEY WORD TRANSFORMATION */
+.kwt-keyword{display:inline-block;padding:4px 14px;background:linear-gradient(135deg,var(--red1),var(--red2));color:#fff;border-radius:20px;font-weight:800;font-size:15px;margin:8px 0 12px}
+/* READING TEXT */
+.reading-text{background:var(--bg);border-radius:14px;padding:20px;font-size:15px;line-height:1.8;color:var(--text);margin-bottom:20px;border-left:4px solid var(--red1)}
+/* VOCAB */
+.vocab-list{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.vocab-chip{background:var(--pink2);color:var(--red2);padding:7px 16px;border-radius:20px;font-size:13px;font-weight:700}
+/* SCORE */
+.score-display{text-align:center;padding:30px;background:var(--white);border-radius:20px;box-shadow:var(--shadow)}
+.score-big{font-size:60px;font-weight:800;color:var(--red2)}.score-msg{font-size:20px;font-weight:700;margin:10px 0;color:var(--text)}.score-sub{font-size:14px;color:var(--text2)}
+/* TEACHER */
+.teacher-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.teacher-tab{padding:10px 20px;border-radius:14px;border:2px solid var(--pink1);background:var(--white);font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:var(--text2);cursor:pointer;transition:.2s}
+.teacher-tab.active{background:linear-gradient(135deg,var(--pink2),var(--red1));color:#fff;border-color:transparent}
+/* TABLE */
+.data-table{width:100%;border-collapse:collapse;font-size:14px}
+.data-table th{background:var(--pink1);padding:12px 14px;text-align:left;font-weight:800;color:var(--red2)}
+.data-table td{padding:11px 14px;border-bottom:1px solid var(--pink1)}.data-table tr:hover td{background:var(--bg)}
+/* BADGES */
+.badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.badge-green{background:#e8f5e9;color:#2e7d32}.badge-blue{background:#e3f2fd;color:#1565c0}
+.badge-pink{background:var(--pink1);color:var(--red2)}.badge-orange{background:#fff3e0;color:#e65100}
+.badge-purple{background:#f3e5f5;color:#6a1b9a}
+/* FORM */
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-weight:700;font-size:13px;color:var(--text2);margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 15px;border:2px solid var(--pink1);border-radius:12px;font-family:'Nunito',sans-serif;font-size:14px;outline:none;transition:.3s;background:#fff}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--red1)}
+.form-group textarea{min-height:80px;resize:vertical}
+.form-hint{font-size:11px;color:var(--text2);margin-top:4px;font-style:italic}
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(90,58,74,.5);z-index:1000;align-items:center;justify-content:center;padding:16px}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:24px;padding:28px;max-width:640px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(255,107,129,.3);animation:fadeIn .3s ease}
+.modal-title{font-size:20px;font-weight:800;color:var(--red2);margin-bottom:20px}
+/* ANNOUNCEMENTS */
+.announcement{background:linear-gradient(135deg,var(--pink1),var(--pink2));border-radius:14px;padding:16px 20px;margin-bottom:12px;display:flex;gap:14px;align-items:flex-start}
+.announcement .icon{font-size:22px}.announcement .text{flex:1}
+.announcement .text h4{font-size:14px;font-weight:800;color:var(--red2)}.announcement .text p{font-size:13px;color:var(--text2);margin-top:3px}
+.announcement .ann-actions{display:flex;gap:6px;flex-shrink:0}
+/* ACHIEVEMENTS */
+.achievements-grid{display:flex;flex-wrap:wrap;gap:10px}
+.ach-badge{background:var(--white);border-radius:14px;padding:14px 18px;text-align:center;box-shadow:var(--shadow2);min-width:90px}
+.ach-badge .icon{font-size:28px}.ach-badge .name{font-size:11px;font-weight:700;color:var(--text2);margin-top:4px}
+.ach-badge.locked{opacity:.4;filter:grayscale(1)}
+/* BREADCRUMB */
+.breadcrumb{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text2);margin-bottom:20px;flex-wrap:wrap}
+.breadcrumb span{cursor:pointer;color:var(--red1);font-weight:700}.breadcrumb span:hover{text-decoration:underline}.breadcrumb .sep{color:var(--pink2)}
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:50px 20px;color:var(--text2)}
+.empty-state .icon{font-size:60px;margin-bottom:16px}.empty-state h3{font-size:18px;font-weight:800;color:var(--text);margin-bottom:8px}
+/* PENDING */
+.pending-tag{font-size:11px;background:#fff3e0;color:#e65100;padding:3px 10px;border-radius:20px;font-weight:700}
+/* TOOLTIP */
+.tooltip-wrap{position:relative;display:inline-block}
+.tooltip-icon{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:var(--pink2);border-radius:50%;font-size:10px;font-weight:800;color:var(--red2);cursor:help;margin-left:6px}
+.tooltip-text{display:none;position:absolute;bottom:125%;left:50%;transform:translateX(-50%);background:#5a3a4a;color:#fff;padding:8px 12px;border-radius:10px;font-size:12px;font-weight:600;white-space:nowrap;z-index:50;pointer-events:none}
+.tooltip-wrap:hover .tooltip-text{display:block}
+/* EXERCISE PREVIEW */
+.preview-box{background:var(--bg);border-radius:14px;padding:18px;margin-top:12px;border:2px dashed var(--red1)}
+.preview-box h4{font-size:13px;font-weight:800;color:var(--red2);margin-bottom:10px}
+/* TYPE FIELDS */
+.type-fields{background:var(--bg);border-radius:14px;padding:16px;margin-top:8px}
+.ex-list-item{background:var(--white);border-radius:10px;padding:10px 14px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;border:1px solid var(--pink1)}
+.ex-list-item .ex-q{font-size:13px;font-weight:600;color:var(--text);flex:1}
+.ex-list-item .ex-type{font-size:10px;background:var(--pink2);color:var(--red2);padding:2px 8px;border-radius:10px;font-weight:700;white-space:nowrap}
+/* SECTION DIVIDER */
+.section-divider{font-size:13px;font-weight:800;color:var(--text2);text-transform:uppercase;letter-spacing:1px;margin:20px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--pink1)}
+footer{text-align:center;padding:24px;color:var(--text2);font-size:13px;border-top:2px solid var(--pink1);margin-top:40px}
+@media(max-width:600px){
+  .welcome-banner{flex-direction:column}.levels-grid{grid-template-columns:1fr}
+  .teacher-tabs{gap:6px}.teacher-tab{padding:8px 12px;font-size:12px}
+  .match-container{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginSection">
+  <div class="login-box">
+    <div class="login-logo">📚</div>
+    <div class="login-title">English Class Hub</div>
+    <div class="login-subtitle">🌸 Your English learning space</div>
+    <div class="input-group"><label>Username</label><input type="text" id="loginUser" placeholder="Enter username..." onkeydown="if(event.key==='Enter')doLogin()"></div>
+    <div class="input-group"><label>Password</label><input type="password" id="loginPass" placeholder="Enter password..." onkeydown="if(event.key==='Enter')doLogin()"></div>
+    <button class="btn btn-primary btn-full" onclick="doLogin()">🚀 Log In</button>
+    <div class="login-error" id="loginError">❌ Incorrect username or password.</div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="mainApp">
+  <nav id="navbar">
+    <div class="nav-logo">📚 English Class Hub</div>
+    <div class="nav-right">
+      <span class="nav-user" id="navUser"></span>
+      <button class="nav-btn" onclick="showDashboard()">🏠 Home</button>
+      <button class="nav-btn" id="btnTeacher" onclick="showTeacher()" style="display:none">⚙️ Teacher</button>
+      <button class="nav-btn" onclick="doLogout()">🚪 Logout</button>
+    </div>
+  </nav>
+  <div class="container">
+    <div id="sectionDash" class="section active"><div id="dashContent"></div></div>
+    <div id="sectionLevel" class="section"><div id="levelContent"></div></div>
+    <div id="sectionExercise" class="section"><div id="exerciseContent"></div></div>
+    <div id="sectionTeacher" class="section"><div id="teacherContent"></div></div>
+  </div>
+  <footer>© English Class Hub 🌸 | Designed for English learners</footer>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modalBox"><div id="modalContent"></div></div>
+</div>
+
+<script>
+// ============================================================
+// EXERCISE TYPE REGISTRY
+// ============================================================
+const EX_TYPES = {
+  // Basic
+  multiple_choice:     {label:'Multiple Choice',group:'Basic',desc:'Choose one correct answer from options',icon:'🔵'},
+  true_false:          {label:'True / False',group:'Basic',desc:'Decide if a statement is true or false',icon:'✅'},
+  fill_blank:          {label:'Fill in the Blank',group:'Basic',desc:'Type the missing word or phrase',icon:'✏️'},
+  short_answer:        {label:'Short Answer',group:'Basic',desc:'Write a short response (free text)',icon:'💬'},
+  // Interactive
+  drag_match:          {label:'Drag & Match',group:'Interactive',desc:'Match items on the left with items on the right',icon:'🔗'},
+  sentence_order:      {label:'Sentence Order',group:'Interactive',desc:'Put jumbled words in the correct order',icon:'🔀'},
+  word_bank_gap:       {label:'Word Bank Gap-fill',group:'Interactive',desc:'Drag or click words from a bank into gaps',icon:'🏦'},
+  dropdown_gap:        {label:'Dropdown Gap-fill',group:'Interactive',desc:'Select the correct word from a dropdown in context',icon:'🔽'},
+  error_correction:    {label:'Error Correction',group:'Interactive',desc:'Find and correct the error in the sentence',icon:'🔍'},
+  // Cambridge-style
+  open_cloze:          {label:'Open Cloze',group:'Cambridge',desc:'Complete gaps with ONE word (B1/B2)',icon:'📝'},
+  word_formation:      {label:'Word Formation',group:'Cambridge',desc:'Change the form of a given word to fit the gap',icon:'🔤'},
+  key_word_transformation:{label:'Key Word Transformation',group:'Cambridge',desc:'Rewrite a sentence using a given keyword',icon:'🔑'},
+  sentence_completion: {label:'Sentence Completion',group:'Cambridge',desc:'Complete a sentence with 2-5 words',icon:'📖'},
+  matching_headings:   {label:'Matching Headings',group:'Cambridge',desc:'Match headings/summaries to paragraphs',icon:'🗂️'},
+  multiple_choice_reading:{label:'Multiple Choice (Reading)',group:'Cambridge',desc:'Answer comprehension questions about a text',icon:'📰'},
+  multiple_matching:   {label:'Multiple Matching',group:'Cambridge',desc:'Match questions to sections of a text',icon:'🧩'},
+  gapped_text:         {label:'Gapped Text (Sentences)',group:'Cambridge',desc:'Insert missing sentences into a text',icon:'📄'},
+  image_match:         {label:'Image / Label Match',group:'Interactive',desc:'Match labels to parts of an image description',icon:'🖼️'},
+};
+
+// Legacy type aliases for backward compatibility
+const TYPE_ALIAS = {mc:'multiple_choice',tf:'true_false',fill:'fill_blank',writing:'short_answer'};
+function canonType(t){return TYPE_ALIAS[t]||t||'multiple_choice'}
+
+// ============================================================
+// DEFAULT DATA
+// ============================================================
+const LEVELS = [
+  {id:'infantil',name:'Infantil',tag:'Pre-A1',category:'KIDS'},
+  {id:'primary12',name:'Primary 1-2',tag:'A1',category:'KIDS'},
+  {id:'primary34',name:'Primary 3-4',tag:'A1+',category:'KIDS'},
+  {id:'primary56',name:'Primary 5-6',tag:'A2',category:'KIDS'},
+  {id:'1eso',name:'1º ESO',tag:'A2',category:'TEENS'},
+  {id:'2eso',name:'2º ESO',tag:'A2+',category:'TEENS'},
+  {id:'3eso',name:'3º ESO',tag:'B1',category:'TEENS'},
+  {id:'4eso',name:'4º ESO',tag:'B1+',category:'TEENS'},
+  {id:'a1adults',name:'A1 Adults – English File Beginner',tag:'A1',category:'ADULTS'},
+  {id:'a2adults',name:'A2 Elementary',tag:'A2',category:'ADULTS'},
+  {id:'b1adults',name:'B1 Intermediate',tag:'B1',category:'ADULTS'},
+  {id:'b2adults',name:'B2 Upper-Intermediate',tag:'B2',category:'ADULTS'},
+];
+
+function buildDefaultUnits(){
+  const units=[];
+  // --- A1 Adults sample units ---
+  units.push({id:'a1adults_vocab_1',level:'a1adults',skill:'vocab',order:1,published:true,title:'Numbers 0-10 & Days of the Week',description:'Practise essential numbers and days. (File 1A)',externalLink:'https://www.youtube.com/watch?v=HMtRWNssPaM',
+    exercises:[
+      {type:'multiple_choice',q:'What number comes after "seven"?',opts:['six','eight','nine','ten'],ans:1},
+      {type:'true_false',q:'"Wednesday" comes after "Tuesday" in the week.',ans:true},
+      {type:'fill_blank',q:'Complete: zero, one, two, ___, four',ans:'three'},
+      {type:'sentence_order',q:'Put in order: days / There / seven / are / a / week / in',words:['There','are','seven','days','in','a','week'],ans:'There are seven days in a week'},
+      {type:'word_bank_gap',q:'Complete: ___ is the first day of the school week.',words:['Monday','Sunday','Friday','Saturday'],sentence:'___ is the first day of the school week.',gaps:['Monday']},
+    ]
+  });
+  units.push({id:'a1adults_vocab_2',level:'a1adults',skill:'vocab',order:2,published:true,title:'Countries & Nationalities',description:'Talk about where people are from. (File 1B)',externalLink:'',
+    exercises:[
+      {type:'multiple_choice',q:'She\'s from Madrid. She\'s ___.',opts:['French','Italian','Spanish','Mexican'],ans:2},
+      {type:'fill_blank',q:'He\'s from the United Kingdom. He\'s ___ (nationality).',ans:'British'},
+      {type:'true_false',q:'"Chinese" is the nationality for people from China.',ans:true},
+      {type:'drag_match',q:'Match the country to its nationality.',pairs:[['Spain','Spanish'],['Italy','Italian'],['France','French'],['Germany','German']]},
+      {type:'error_correction',q:'Find and correct the error: "She\'s from Germany. She\'s Germanian."',errorWord:'Germanian',ans:'German'},
+    ]
+  });
+  units.push({id:'a1adults_grammar_1',level:'a1adults',skill:'grammar',order:1,published:true,title:'Verb BE – I and You',description:'Use "am" and "are" correctly. (File 1A)',externalLink:'',
+    exercises:[
+      {type:'multiple_choice',q:'Complete: "___ Helen." (I)',opts:["I'm","You're","He's","She's"],ans:0},
+      {type:'fill_blank',q:'Complete the negative: "I ___ not Ellen. I\'m Helen."',ans:'am'},
+      {type:'true_false',q:'"I\'m" is a contraction of "I am".',ans:true},
+      {type:'dropdown_gap',q:'Choose the correct form:',sentence:['Hi! ','[am|is|are]',' you OK?'],ans:1},
+      {type:'key_word_transformation',q:'Rewrite using the keyword.',original:'I am not from Spain.',keyword:'from',ans:"I'm not from Spain."},
+    ]
+  });
+  units.push({id:'a1adults_grammar_2',level:'a1adults',skill:'grammar',order:2,published:true,title:'Present Simple – He/She/It',description:'Third person singular. (File 6A)',externalLink:'https://www.youtube.com/watch?v=tFqgvBjYmC8',
+    exercises:[
+      {type:'multiple_choice',q:'She ___ for a newspaper.',opts:['work','works','is work','working'],ans:1},
+      {type:'fill_blank',q:'"He ___ (teach) French at our school."',ans:'teaches'},
+      {type:'true_false',q:'"He doesn\'t wear glasses" is the correct negative form.',ans:true},
+      {type:'word_bank_gap',q:'Complete the sentence.',words:['goes','go','going','gone'],sentence:'She ___ to the gym three times a week.',gaps:['goes']},
+      {type:'word_formation',q:'Use the word in brackets to complete the sentence.',sentence:'She is a ___ journalist. (TALENT)',baseWord:'TALENT',ans:'talented'},
+    ]
+  });
+  units.push({id:'a1adults_reading_1',level:'a1adults',skill:'reading',order:1,published:true,title:'A Cappuccino, Please!',description:'A story about ordering coffee. (File 1A)',externalLink:'',
+    text:`Helen is at a famous coffee shop in a big city. She orders a cappuccino. The barista asks for her name. Helen says her name, but the barista hears "Ellen". Helen corrects him.\n\nA few minutes later, a man called Tom arrives. He says, "Hello, are you Helen?" Helen says, "Yes, I am. And you're Tom." Tom says, "Yes! Nice to meet you."\n\nTom goes to order a tea. The barista hears "Dom" instead of "Tom". Helen laughs. It is difficult to hear names in a noisy coffee shop!`,
+    exercises:[
+      {type:'multiple_choice',q:'What does Helen order?',opts:['A tea','A cappuccino','A latte','A water'],ans:1},
+      {type:'true_false',q:'The barista hears "Ellen" instead of "Helen".',ans:true},
+      {type:'fill_blank',q:'Tom orders a ___ at the coffee shop.',ans:'tea'},
+      {type:'multiple_choice',q:'Why does Helen laugh?',opts:['Tom is funny.','Names are hard to hear in a noisy place.','She spills her coffee.','Tom orders the wrong thing.'],ans:1},
+    ]
+  });
+  units.push({id:'a1adults_listening_1',level:'a1adults',skill:'listening',order:1,published:true,title:'Numbers & Days – Listen & Practise',description:'Practise numbers and days of the week.',externalLink:'https://www.youtube.com/watch?v=HMtRWNssPaM',
+    vocab:['zero','one','two','three','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
+    exercises:[
+      {type:'multiple_choice',q:'Which number comes after 5?',opts:['4','6','7','8'],ans:1},
+      {type:'true_false',q:'Monday is the first day of the working week.',ans:true},
+      {type:'fill_blank',q:'How many days are in a week? Write the number word.',ans:'seven'},
+    ]
+  });
+  units.push({id:'a1adults_listening_2',level:'a1adults',skill:'listening',order:2,published:true,title:'Greetings in English',description:'Basic greetings and introductions.',externalLink:'https://www.youtube.com/watch?v=6M5VKxLjzH4',
+    vocab:['Hello','Hi','Goodbye','Nice to meet you','How are you?','I\'m fine'],
+    exercises:[
+      {type:'multiple_choice',q:'What do you say when you first meet someone?',opts:['Goodbye!','Nice to meet you!','See you later!','Good night!'],ans:1},
+      {type:'true_false',q:'"Hi" is a more informal way of saying "Hello".',ans:true},
+    ]
+  });
+  units.push({id:'a1adults_writing_1',level:'a1adults',skill:'writing',order:1,published:true,title:'Introduce Yourself',description:'Write a short introduction about yourself.',externalLink:'',
+    exercises:[{type:'short_answer',q:'Write 5–7 sentences introducing yourself. Include: your name, where you are from, your nationality, your job, and one thing you like.\n\nUse: I\'m..., I\'m from..., I\'m (nationality)..., I work..., I like...',ans:''}]
+  });
+  // Pad remaining slots for other levels as coming soon
+  for(let i=3;i<=10;i++){
+    ['vocab','grammar','reading','listening','writing'].forEach(sk=>{
+      units.push({id:`a1adults_${sk}_${i}`,level:'a1adults',skill:sk,order:i,published:false,title:`Unit ${i} – Coming Soon`,description:'Your teacher will add content here soon.',externalLink:'',exercises:[]});
+    });
+  }
+  return units;
+}
+
+// ============================================================
+// STORAGE
+// ============================================================
+function loadData(){
+  try{const s=localStorage.getItem('echData2');if(s)return migrateData(JSON.parse(s));}catch(e){}
+  return {users:[
+    {id:'teacher1',name:'Iria',username:'Iria',password:'1211',role:'teacher'},
+    {id:'s1',name:'Bruno',username:'bruno',password:'bruno123',role:'student',level:'infantil',streak:3,lastActivity:null,scores:{}},
+    {id:'s2',name:'Mario',username:'mario',password:'mario123',role:'student',level:'primary12',streak:1,lastActivity:null,scores:{}},
+    {id:'s3',name:'Area',username:'area',password:'area123',role:'student',level:'primary34',streak:0,lastActivity:null,scores:{}},
+    {id:'s4',name:'Thiago',username:'thiago',password:'thiago123',role:'student',level:'primary12',streak:2,lastActivity:null,scores:{}},
+    {id:'s5',name:'Ale',username:'ale',password:'ale123',role:'student',level:'a1adults',streak:0,lastActivity:null,scores:{}},
+    {id:'s6',name:'Mar',username:'Mar',password:'4676',role:'student',level:'primary56',streak:1,lastActivity:null,scores:{}},
+  ],levels:LEVELS,units:buildDefaultUnits(),announcements:[{id:'ann1',target:'all',title:'Welcome to English Class Hub! 🌸',text:'Bienvenidos a nuestra clase virtual. Let\'s learn English together!',date:'2025-09-01'}],submissions:[]};
+}
+function migrateData(d){
+  // Migrate old exercise types
+  (d.units||[]).forEach(u=>{
+    u.externalLink=u.externalLink||u.videoId||'';
+    delete u.videoId;
+    u.description=u.description||u.desc||'';
+    delete u.desc;
+    (u.exercises||[]).forEach(ex=>{
+      ex.type=canonType(ex.type);
+      if(!ex.q&&ex.question)ex.q=ex.question;
+    });
+  });
+  d.levels=LEVELS;
+  return d;
+}
+function saveData(){localStorage.setItem('echData2',JSON.stringify(APP))}
+function resetData(){if(confirm('Reset all data to demo defaults?')){localStorage.removeItem('echData2');location.reload()}}
+
+let APP=loadData();
+let currentUser=null,currentLevel=null,currentSkill='vocab',currentUnit=null;
+let exState={};// {answers:{}, submitted:false, matchSel:{left,right}, orderPool, orderPlaced, gapState}
+
+// ============================================================
+// LOGIN / LOGOUT
+// ============================================================
+function doLogin(){
+  const u=document.getElementById('loginUser').value.trim();
+  const p=document.getElementById('loginPass').value.trim();
+  const found=APP.users.find(x=>x.username===u&&x.password===p);
+  if(!found){document.getElementById('loginError').style.display='block';return}
+  document.getElementById('loginError').style.display='none';
+  currentUser=found;
+  document.getElementById('loginSection').style.display='none';
+  document.getElementById('mainApp').style.display='block';
+  document.getElementById('mainApp').classList.add('visible');
+  document.getElementById('navUser').textContent='👤 '+found.name;
+  document.getElementById('btnTeacher').style.display=found.role==='teacher'?'':'none';
+  found.role==='teacher'?showTeacher():showDashboard();
+}
+function doLogout(){
+  currentUser=null;currentLevel=null;currentUnit=null;
+  document.getElementById('loginSection').style.display='flex';
+  document.getElementById('mainApp').style.display='none';
+  document.getElementById('loginUser').value='';document.getElementById('loginPass').value='';
+}
+
+// ============================================================
+// SECTIONS
+// ============================================================
+function showSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active')}
+function showDashboard(){showSection('sectionDash');renderDashboard()}
+function showTeacher(){showSection('sectionTeacher');renderTeacher()}
+
+// ============================================================
+// DASHBOARD
+// ============================================================
+function renderDashboard(){
+  if(currentUser.role==='teacher'){document.getElementById('dashContent').innerHTML=`<div class="card"><div class="card-title">👩‍🏫 Teacher</div><p style="color:var(--text2)">Click ⚙️ Teacher in the menu to open the panel.</p><br><button class="btn btn-primary" onclick="showTeacher()">⚙️ Open Teacher Panel</button></div>`;return}
+  const u=currentUser;
+  const lvl=APP.levels.find(l=>l.id===u.level)||APP.levels[0];
+  const skills=['vocab','grammar','reading','listening','writing'];
+  const skillNames={vocab:'📖 Vocabulary',grammar:'📝 Grammar',reading:'📚 Reading',listening:'🎧 Listening',writing:'✏️ Writing'};
+  let progBars='';
+  skills.forEach(sk=>{
+    const total=APP.units.filter(x=>x.level===lvl.id&&x.skill===sk&&x.published).length;
+    const done=Object.keys(u.scores||{}).filter(k=>k.startsWith(lvl.id+'_'+sk)).length;
+    const pct=total>0?Math.round(done/total*100):0;
+    progBars+=`<div class="progress-wrap"><div class="progress-label"><span>${skillNames[sk]}</span><span>${pct}%</span></div><div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div></div>`;
+  });
+  const anns=APP.announcements.filter(a=>a.target==='all'||a.target===u.id||a.target===u.level);
+  let annHTML=anns.map(a=>`<div class="announcement"><div class="icon">📢</div><div class="text"><h4>${a.title}</h4><p>${a.text}</p></div></div>`).join('');
+  const achs=[
+    {icon:'🌟',name:'First Exercise',cond:Object.keys(u.scores||{}).length>=1},
+    {icon:'🔥',name:'5-Day Streak',cond:(u.streak||0)>=5},
+    {icon:'💯',name:'Perfect Score',cond:Object.values(u.scores||{}).some(s=>s===100)},
+    {icon:'📚',name:'5 Units Done',cond:Object.keys(u.scores||{}).length>=5},
+    {icon:'🏆',name:'10 Units Done',cond:Object.keys(u.scores||{}).length>=10},
+  ];
+  document.getElementById('dashContent').innerHTML=`
+    <div class="welcome-banner">
+      <div class="welcome-text"><h2>Hello, ${u.name}! 👋</h2><p>Level: <strong>${lvl.name} (${lvl.tag})</strong></p></div>
+      <div class="streak-badge"><div class="num">🔥 ${u.streak||0}</div><div class="lbl">Day Streak</div></div>
+    </div>
+    ${annHTML?`<div class="card"><div class="card-title">📢 Announcements</div>${annHTML}</div>`:''}
+    <div class="card"><div class="card-title">📊 My Progress</div>${progBars}</div>
+    <div class="card"><div class="card-title">🏅 Achievements</div><div class="achievements-grid">${achs.map(a=>`<div class="ach-badge ${a.cond?'':'locked'}"><div class="icon">${a.icon}</div><div class="name">${a.name}</div></div>`).join('')}</div></div>
+    <div class="card"><div class="card-title">📂 My Level</div><div class="levels-grid"><div class="level-card" onclick="openLevel('${lvl.id}')"><h3>${lvl.name}</h3><span class="badge badge-pink">${lvl.tag}</span><p style="font-size:12px;color:var(--text2);margin-top:8px">${lvl.category}</p></div></div></div>`;
+}
+
+// ============================================================
+// LEVEL VIEW
+// ============================================================
+function openLevel(levelId){currentLevel=levelId;currentSkill='vocab';showSection('sectionLevel');renderLevelView()}
+function renderLevelView(){
+  const lvl=APP.levels.find(l=>l.id===currentLevel);
+  const skills=['vocab','grammar','reading','listening','writing'];
+  const skillNames={vocab:'📖 Vocabulary',grammar:'📝 Grammar',reading:'📚 Reading',listening:'🎧 Listening',writing:'✏️ Writing'};
+  const tabs=skills.map(sk=>`<button class="skill-tab ${sk===currentSkill?'active':''}" onclick="setSkill('${sk}')">${skillNames[sk]}</button>`).join('');
+  const units=APP.units.filter(u=>u.level===currentLevel&&u.skill===currentSkill&&(currentUser.role==='teacher'||u.published)).sort((a,b)=>a.order-b.order);
+  const unitsHTML=units.map(u=>{
+    const done=(currentUser.scores||{})[u.id]!==undefined;
+    const score=done?(currentUser.scores||{})[u.id]:null;
+    const locked=!u.published;
+    return`<div class="unit-item ${done?'completed':''} ${locked?'locked':''}" onclick="${locked?'':'openUnit(\''+u.id+'\')'}" title="${locked?'Not published yet':'Open unit'}">
+      <div class="unit-info"><h4>${u.order}. ${u.title}</h4><p>${u.description||''}</p></div>
+      <div class="unit-score">${locked?'<span class="badge badge-blue">Hidden</span>':done?`<span class="badge badge-green">${score==='pending'?'Pending':score+'%'}</span>`:'<span class="badge badge-pink">Start →</span>'}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('levelContent').innerHTML=`
+    <div class="breadcrumb"><span onclick="showDashboard()">🏠 Home</span><span class="sep">›</span><span>${lvl.name}</span></div>
+    <div class="card"><div class="card-title">${lvl.name} <span class="badge badge-pink" style="font-size:14px">${lvl.tag}</span></div>
+      <div class="skill-tabs">${tabs}</div>
+      <div class="unit-list">${unitsHTML||'<div class="empty-state"><div class="icon">📭</div><h3>No units yet</h3><p>Your teacher will add content soon.</p></div>'}</div>
+    </div>`;
+}
+function setSkill(sk){currentSkill=sk;renderLevelView()}
+
+// ============================================================
+// EXERCISE VIEW
+// ============================================================
+function openUnit(unitId){
+  currentUnit=APP.units.find(u=>u.id===unitId);
+  exState={answers:{},submitted:false,matchSel:{},orderPool:null,orderPlaced:null,gapState:{}};
+  showSection('sectionExercise');renderExercise();
+}
+function renderExercise(){
+  const u=currentUnit;
+  const lvl=APP.levels.find(l=>l.id===u.level);
+  const skillNames={vocab:'📖 Vocabulary',grammar:'📝 Grammar',reading:'📚 Reading',listening:'🎧 Listening',writing:'✏️ Writing'};
+  let topContent='';
+  // External link button
+  if(u.externalLink&&u.externalLink.trim()){
+    topContent+=`<a class="ext-link-btn" href="${u.externalLink.trim()}" target="_blank" rel="noopener">▶️ Watch / Listen</a>`;
+  }
+  // Vocab chips for listening
+  if(u.skill==='listening'&&u.vocab&&u.vocab.length){
+    topContent+=`<div class="vocab-list">${u.vocab.map(w=>`<span class="vocab-chip">${w}</span>`).join('')}</div>`;
+  }
+  // Reading text
+  if(u.skill==='reading'&&u.text){
+    topContent+=`<div class="reading-text">${u.text.replace(/\n\n/g,'</p><p>').replace(/\n/g,'<br>').replace(/^/,'<p>').replace(/$/,'</p>')}</div>`;
+  }
+  // Exercises
+  let exHTML='';
+  const writingExs=(u.exercises||[]).filter(e=>canonType(e.type)==='short_answer');
+  const scoredExs=(u.exercises||[]).filter(e=>canonType(e.type)!=='short_answer');
+  scoredExs.forEach((ex,i)=>{ exHTML+=renderQuestionHTML(ex,i);});
+  writingExs.forEach((ex,wi)=>{
+    const key='w'+wi;
+    const submitted=exState.submitted&&exState.answers[key];
+    exHTML+=`<div class="question-card"><div class="question-num">Writing Task <span class="question-type-badge">✏️ Short Answer</span></div>
+      <div class="question-text" style="white-space:pre-line">${ex.q}</div>
+      <textarea class="fill-input" id="write_${wi}" style="min-height:140px" ${submitted?'readonly':''} placeholder="Write your answer here...">${exState.answers[key]||''}</textarea>
+      ${!submitted?`<br><br><button class="btn btn-primary" style="margin-top:8px" onclick="submitWriting(${wi})">📨 Submit for Review</button>`:'<span class="pending-tag">⏳ Pending teacher review</span>'}
+    </div>`;
+  });
+  if(scoredExs.length>0&&!exState.submitted){
+    exHTML+=`<button class="btn btn-primary" style="margin-top:4px" onclick="submitExercises()">✅ Check Answers</button>`;
+  } else if(exState.submitted&&scoredExs.length>0){
+    exHTML+=renderScoreHTML();
+  }
+  // Discussion (listening)
+  let discussHTML='';
+  if(u.discussion){discussHTML=`<div class="card" style="margin-top:20px"><div class="card-title">💬 Discussion</div><p style="color:var(--text2)">${u.discussion}</p></div>`}
+  document.getElementById('exerciseContent').innerHTML=`
+    <div class="breadcrumb"><span onclick="showDashboard()">🏠 Home</span><span class="sep">›</span><span onclick="openLevel('${u.level}')">${lvl.name}</span><span class="sep">›</span><span>${skillNames[u.skill]||u.skill}</span><span class="sep">›</span><span>${u.title}</span></div>
+    <div class="exercise-area">
+      <div class="ex-header"><h2>${u.title}</h2><p>${u.description||''}</p></div>
+      ${topContent}
+      ${exHTML||'<div class="empty-state"><div class="icon">📭</div><h3>No exercises yet</h3><p>Your teacher will add exercises soon.</p></div>'}
+      ${discussHTML}
+    </div>`;
+  // Re-bind interactive elements
+  bindInteractive();
+}
+
+function renderQuestionHTML(ex,i){
+  const t=canonType(ex.type);
+  const inf=EX_TYPES[t]||{label:t,icon:'❓'};
+  const ans=exState.answers[i];
+  const sub=exState.submitted;
+  let inner='';
+  if(t==='multiple_choice'||t==='multiple_choice_reading'){
+    inner=`<div class="options">${(ex.opts||[]).map((o,j)=>{
+      let cls='option';
+      if(sub){cls+=(j===ex.ans?' correct':(j===ans&&j!==ex.ans?' wrong':''));}
+      else if(ans===j)cls+=' selected';
+      return`<button class="${cls}" onclick="${sub?'':'selectMC('+i+','+j+')'}">${o}</button>`;
+    }).join('')}</div>`;
+  } else if(t==='true_false'){
+    inner=`<div class="options">${[{l:'True ✅',v:true},{l:'False ❌',v:false}].map(o=>{
+      let cls='option';
+      if(sub){cls+=(o.v===ex.ans?' correct':(ans===o.v&&o.v!==ex.ans?' wrong':''));}
+      else if(ans===o.v)cls+=' selected';
+      return`<button class="${cls}" onclick="${sub?'':'selectTF('+i+','+o.v+')'}">${o.l}</button>`;
+    }).join('')}</div>`;
+  } else if(t==='fill_blank'||t==='open_cloze'){
+    const correct=sub&&ans&&ans.toLowerCase().trim()===(ex.ans||'').toLowerCase().trim();
+    const cls='fill-input'+(sub?(correct?' correct':' wrong'):'');
+    inner=`<input type="text" class="${cls}" id="fill_${i}" value="${ans||''}" ${sub?'readonly':''} placeholder="Type your answer..." oninput="setFill(${i},this.value)">
+      ${sub&&!correct?`<p style="font-size:13px;color:#2e7d32;margin-top:6px">✅ Correct: <strong>${ex.ans}</strong></p>`:''}`;
+  } else if(t==='word_formation'){
+    const correct=sub&&ans&&ans.toLowerCase().trim()===(ex.ans||'').toLowerCase().trim();
+    const cls='fill-input'+(sub?(correct?' correct':' wrong'):'');
+    inner=`<p style="margin-bottom:8px;font-size:14px;color:var(--text2)">Base word: <strong>${ex.baseWord||''}</strong></p>
+      <input type="text" class="${cls}" id="fill_${i}" value="${ans||''}" ${sub?'readonly':''} placeholder="Write the correct form..." oninput="setFill(${i},this.value)">
+      ${sub&&!correct?`<p style="font-size:13px;color:#2e7d32;margin-top:6px">✅ Correct: <strong>${ex.ans}</strong></p>`:''}`;
+  } else if(t==='key_word_transformation'){
+    const correct=sub&&ans&&ans.toLowerCase().trim()===(ex.ans||'').toLowerCase().trim();
+    const cls='fill-input'+(sub?(correct?' correct':' wrong'):'');
+    inner=`<p style="margin-bottom:6px;font-size:14px">Original: <em>${ex.original||''}</em></p>
+      <div class="kwt-keyword">${ex.keyword||''}</div>
+      <input type="text" class="${cls}" id="fill_${i}" value="${ans||''}" ${sub?'readonly':''} placeholder="Rewrite the sentence using this keyword..." oninput="setFill(${i},this.value)">
+      ${sub&&!correct?`<p style="font-size:13px;color:#2e7d32;margin-top:6px">✅ Model answer: <strong>${ex.ans}</strong></p>`:''}`;
+  } else if(t==='error_correction'){
+    const correct=sub&&ans&&ans.toLowerCase().trim()===(ex.ans||'').toLowerCase().trim();
+    const cls='fill-input'+(sub?(correct?' correct':' wrong'):'');
+    inner=`<div class="error-text">${(ex.q||'').replace(ex.errorWord||'XXXX',`<span style="text-decoration:underline;color:var(--red2)">${ex.errorWord||''}</span>`)}</div>
+      <p style="font-size:13px;margin-bottom:8px;color:var(--text2)">Correct the underlined word:</p>
+      <input type="text" class="${cls}" id="fill_${i}" value="${ans||''}" ${sub?'readonly':''} placeholder="Correct word..." oninput="setFill(${i},this.value)">
+      ${sub&&!correct?`<p style="font-size:13px;color:#2e7d32;margin-top:6px">✅ Correct: <strong>${ex.ans}</strong></p>`:''}`;
+  } else if(t==='sentence_order'){
+    const pool=exState.orderPool&&exState.orderPool[i]!==undefined?exState.orderPool[i]:[...(ex.words||[])];
+    const placed=exState.orderPlaced&&exState.orderPlaced[i]!==undefined?exState.orderPlaced[i]:[];
+    if(!exState.orderPool){exState.orderPool={};exState.orderPlaced={};}
+    if(exState.orderPool[i]===undefined){exState.orderPool[i]=shuffleArr([...(ex.words||[])]);exState.orderPlaced[i]=[];}
+    const pWords=exState.orderPool[i].map((w,wi)=>`<span class="word-tile" data-ex="${i}" data-wi="${wi}" data-src="pool" onclick="moveTile(${i},${wi},'pool')">${w}</span>`).join('');
+    const plWords=exState.orderPlaced[i].map((w,wi)=>`<span class="word-tile placed" data-ex="${i}" data-wi="${wi}" data-src="placed" onclick="moveTile(${i},${wi},'placed')">${w}</span>`).join('');
+    const correct=sub&&exState.orderPlaced[i]&&exState.orderPlaced[i].join(' ').toLowerCase()===(ex.ans||'').toLowerCase();
+    inner=`<p style="font-size:12px;color:var(--text2);margin-bottom:6px">Click words to build the sentence:</p>
+      <div class="sent-order-pool">${pWords}</div>
+      <div class="sent-order-area">${plWords||'<span style="color:var(--text2);font-size:13px">Click words above to place them here</span>'}</div>
+      ${sub?`<p style="font-size:13px;margin-top:8px;color:${correct?'#2e7d32':'#c62828'}">${correct?'✅ Correct!':'❌ Model: <strong>'+ex.ans+'</strong>'}</p>`:''}`;
+  } else if(t==='drag_match'){
+    const pairs=ex.pairs||[];
+    const sel=exState.matchSel[i]||{left:null,right:null};
+    const matched=exState.answers[i]||{};
+    const lefts=pairs.map(p=>p[0]);const rights=shuffleArr(pairs.map(p=>p[1]));
+    if(!exState.matchShuffled)exState.matchShuffled={};
+    if(!exState.matchShuffled[i])exState.matchShuffled[i]=shuffleArr(pairs.map(p=>p[1]));
+    const sRights=exState.matchShuffled[i];
+    const lHTML=lefts.map((l,li)=>{const isMatch=matched[li]!==undefined;return`<div class="match-item left ${sel.left===li?'selected':''} ${isMatch?'matched':''}" onclick="${sub?'':'selectMatch('+i+',\'left\','+li+')'}">${l}${isMatch?` → <strong>${matched[li]}</strong>`:''}</div>`}).join('');
+    const rHTML=sRights.map((r,ri)=>{const used=Object.values(matched).includes(r);return`<div class="match-item right ${sel.right===ri?'selected':''} ${used?'matched':''}" onclick="${sub||used?'':'selectMatch('+i+',\'right\','+ri+')'}">${r}</div>`}).join('');
+    const allMatched=Object.keys(matched).length===pairs.length;
+    const correct=sub&&pairs.every((p,pi)=>matched[pi]===p[1]);
+    inner=`<p style="font-size:12px;color:var(--text2);margin-bottom:8px">Click a left item, then a right item to match them:</p>
+      <div class="match-container"><div class="match-col">${lHTML}</div><div class="match-col">${rHTML}</div></div>
+      ${sub?`<p style="font-size:13px;color:${correct?'#2e7d32':'#c62828'}">${correct?'✅ All correct!':'Check the matches above.'}</p>`:''}
+      ${!sub&&allMatched?`<button class="btn btn-success btn-sm" onclick="checkMatch(${i})">✅ Check Match</button>`:''}`;
+  } else if(t==='word_bank_gap'){
+    const sentence=ex.sentence||'';
+    const gaps=ex.gaps||[];
+    const pool=ex.words||[];
+    if(!exState.gapState[i])exState.gapState[i]={filled:[],selected:null};
+    const gs=exState.gapState[i];
+    let gIdx=0;
+    const sentHTML=sentence.replace(/_+/g,()=>{
+      const gi=gIdx++;const val=gs.filled[gi];
+      const correct=sub&&val&&val.toLowerCase()===(gaps[gi]||'').toLowerCase();
+      const wrong=sub&&val&&val.toLowerCase()!==(gaps[gi]||'').toLowerCase();
+      return `<span class="gap-slot ${!val?'empty':''} ${sub?(correct?'correct':wrong?'wrong':''):''}" onclick="${sub?'':'clickGap('+i+','+gi+')'}">${val||'___'}</span>`;
+    });
+    const bankHTML=pool.map((w,wi)=>{const used=gs.filled.includes(w);return`<span class="bank-word ${used?'used':''}" onclick="${sub||used?'':'clickBankWord('+i+','+wi+')'}">${w}</span>`}).join('');
+    inner=`<p style="font-size:12px;color:var(--text2);margin-bottom:8px">Click a word from the bank, then click the gap:</p>
+      <div class="word-bank-pool">${bankHTML}</div>
+      <div class="sentence-with-gaps">${sentHTML}</div>
+      ${sub?`<p style="font-size:13px;color:var(--text2)">Answers: ${gaps.join(', ')}</p>`:''}`;
+  } else if(t==='dropdown_gap'){
+    const parts=ex.sentence||[];
+    let sentHTML='',dIdx=0;
+    parts.forEach(p=>{
+      if(p.includes('|')){
+        const opts=p.replace(/^\[|\]$/g,'').split('|');
+        const di=dIdx++;const curVal=exState.gapState[i]&&exState.gapState[i][di]!==undefined?exState.gapState[i][di]:0;
+        const correct=sub&&parseInt(curVal)===parseInt(ex.ans);
+        sentHTML+=`<select class="gap-select ${sub?(correct?' correct':' wrong'):''}" id="dd_${i}_${di}" ${sub?'disabled':''} onchange="setDropdown(${i},${di},this.value)">${opts.map((o,oi)=>`<option value="${oi}" ${oi==curVal?'selected':''}>${o}</option>`).join('')}</select>`;
+        if(sub&&!correct)sentHTML+=`<span style="font-size:13px;color:#2e7d32;margin-left:6px">✅ ${opts[ex.ans]}</span>`;
+      } else sentHTML+=p;
+    });
+    inner=`<div style="font-size:16px;line-height:2.4">${sentHTML}</div>`;
+  } else if(t==='matching_headings'){
+    const headings=ex.headings||[];const paras=ex.paragraphs||[];
+    inner=paras.map((para,pi)=>{
+      const sel=(exState.answers[i]||{})[pi];
+      const correct=sub&&sel===para.ans;
+      return`<div style="margin-bottom:14px;padding:12px;background:var(--bg);border-radius:10px">
+        <p style="font-size:14px;margin-bottom:6px">${para.text}</p>
+        <select class="gap-select ${sub?(correct?' correct':' wrong'):''}" ${sub?'disabled':''} onchange="setMatchHead(${i},${pi},parseInt(this.value))">
+          <option value="">-- Choose heading --</option>
+          ${headings.map((h,hi)=>`<option value="${hi}" ${sel===hi?'selected':''}>${String.fromCharCode(65+hi)}. ${h}</option>`).join('')}
+        </select>
+        ${sub&&!correct?`<span style="font-size:12px;color:#2e7d32;margin-left:6px">✅ ${headings[para.ans]}</span>`:''}
+      </div>`;
+    }).join('');
+  } else if(t==='gapped_text'){
+    inner=`<p style="color:var(--text2);font-size:13px">Gapped text exercise — add content via the editor.</p>`;
+    const fillIdx=i;
+    const correct=sub&&ans&&ans.toLowerCase().trim()===(ex.ans||'').toLowerCase().trim();
+    const cls='fill-input'+(sub?(correct?' correct':' wrong'):'');
+    inner+=`<input type="text" class="${cls}" id="fill_${fillIdx}" value="${ans||''}" ${sub?'readonly':''} placeholder="Type missing sentence..." oninput="setFill(${fillIdx},this.value)">`;
+  } else if(t==='image_match'){
+    const labels=ex.labels||[];const items=ex.items||[];
+    inner=items.map((item,ii)=>{
+      const sel=(exState.answers[i]||{})[ii];
+      const correct=sub&&sel===item.ans;
+      return`<div style="margin-bottom:10px;display:flex;align-items:center;gap:10px">
+        <span style="font-weight:700;font-size:14px">${ii+1}. ${item.description}</span>
+        <select class="gap-select ${sub?(correct?' correct':' wrong'):''}" ${sub?'disabled':''} onchange="setImageMatch(${i},${ii},parseInt(this.value))">
+          <option value="">--</option>
+          ${labels.map((l,li)=>`<option value="${li}" ${sel===li?'selected':''}>${l}</option>`).join('')}
+        </select>
+        ${sub&&!correct?`<span style="font-size:12px;color:#2e7d32">✅ ${labels[item.ans]}</span>`:''}
+      </div>`;
+    }).join('');
+  } else {
+    // Fallback: fill input
+    const correct=sub&&ans&&ans.toLowerCase().trim()===(ex.ans||'').toLowerCase().trim();
+    const cls='fill-input'+(sub?(correct?' correct':' wrong'):'');
+    inner=`<input type="text" class="${cls}" id="fill_${i}" value="${ans||''}" ${sub?'readonly':''} placeholder="Your answer..." oninput="setFill(${i},this.value)">
+      ${sub&&!correct?`<p style="font-size:13px;color:#2e7d32;margin-top:6px">✅ Correct: <strong>${ex.ans||''}</strong></p>`:''}`;
+  }
+  return`<div class="question-card">
+    <div class="question-num">Question ${i+1} <span class="question-type-badge">${inf.icon} ${inf.label}</span></div>
+    <div class="question-text">${t!=='error_correction'?ex.q||'':''}</div>
+    ${inner}
+  </div>`;
+}
+
+// ============================================================
+// EXERCISE INTERACTIONS
+// ============================================================
+function selectMC(q,opt){exState.answers[q]=opt;renderExercise()}
+function selectTF(q,val){exState.answers[q]=val;renderExercise()}
+function setFill(q,val){exState.answers[q]=val}
+function moveTile(exIdx,wi,src){
+  if(!exState.orderPool)return;
+  if(src==='pool'){
+    const w=exState.orderPool[exIdx][wi];
+    exState.orderPlaced[exIdx].push(w);
+    exState.orderPool[exIdx].splice(wi,1);
+  } else {
+    const w=exState.orderPlaced[exIdx][wi];
+    exState.orderPool[exIdx].push(w);
+    exState.orderPlaced[exIdx].splice(wi,1);
+  }
+  exState.answers[exIdx]=exState.orderPlaced[exIdx].join(' ');
+  renderExercise();
+}
+function selectMatch(exIdx,side,itemIdx){
+  if(!exState.matchSel[exIdx])exState.matchSel[exIdx]={left:null,right:null};
+  const sel=exState.matchSel[exIdx];
+  sel[side]=itemIdx;
+  // If both sides selected, record match
+  if(sel.left!==null&&sel.right!==null){
+    if(!exState.answers[exIdx])exState.answers[exIdx]={};
+    const rightVal=exState.matchShuffled[exIdx][sel.right];
+    exState.answers[exIdx][sel.left]=rightVal;
+    sel.left=null;sel.right=null;
+  }
+  renderExercise();
+}
+function checkMatch(exIdx){exState.submitted=true;calcAndSave();renderExercise()}
+function clickBankWord(exIdx,wi){
+  if(!exState.gapState[exIdx])exState.gapState[exIdx]={filled:[],selected:null};
+  const gs=exState.gapState[exIdx];
+  const w=currentUnit.exercises[exIdx].words[wi];
+  gs.selected=w;
+  renderExercise();
+}
+function clickGap(exIdx,gi){
+  const gs=exState.gapState[exIdx];
+  if(!gs||gs.selected===null)return;
+  gs.filled[gi]=gs.selected;
+  gs.selected=null;
+  exState.answers[exIdx]=(gs.filled||[]).join('|');
+  renderExercise();
+}
+function setDropdown(exIdx,di,val){
+  if(!exState.gapState[exIdx])exState.gapState[exIdx]={};
+  exState.gapState[exIdx][di]=val;
+  exState.answers[exIdx]=val;
+}
+function setMatchHead(exIdx,pi,val){
+  if(!exState.answers[exIdx])exState.answers[exIdx]={};
+  exState.answers[exIdx][pi]=val;
+}
+function setImageMatch(exIdx,ii,val){
+  if(!exState.answers[exIdx])exState.answers[exIdx]={};
+  exState.answers[exIdx][ii]=val;
+}
+function bindInteractive(){
+  // fill inputs already use oninput; others handled via onclick in HTML
+}
+
+// ============================================================
+// SUBMISSION & SCORING
+// ============================================================
+function submitExercises(){
+  // Collect any fill inputs
+  (currentUnit.exercises||[]).forEach((ex,i)=>{
+    const t=canonType(ex.type);
+    if(['fill_blank','open_cloze','word_formation','key_word_transformation','error_correction','gapped_text'].includes(t)){
+      const el=document.getElementById('fill_'+i);if(el)exState.answers[i]=el.value;
+    }
+  });
+  exState.submitted=true;
+  calcAndSave();
+  renderExercise();
+}
+function calcAndSave(){
+  const scored=(currentUnit.exercises||[]).filter(e=>canonType(e.type)!=='short_answer');
+  let correct=0;
+  scored.forEach((ex,i)=>{
+    const t=canonType(ex.type);const ans=exState.answers[i];
+    if(t==='multiple_choice'||t==='multiple_choice_reading'){if(ans===ex.ans)correct++;}
+    else if(t==='true_false'){if(ans===ex.ans)correct++;}
+    else if(['fill_blank','open_cloze','word_formation','key_word_transformation','error_correction','gapped_text'].includes(t)){if(ans&&ans.toLowerCase().trim()===(ex.ans||'').toLowerCase().trim())correct++;}
+    else if(t==='sentence_order'){if(exState.orderPlaced&&exState.orderPlaced[i]&&exState.orderPlaced[i].join(' ').toLowerCase()===(ex.ans||'').toLowerCase())correct++;}
+    else if(t==='drag_match'){const m=exState.answers[i]||{};const allRight=(ex.pairs||[]).every((p,pi)=>m[pi]===p[1]);if(allRight)correct++;}
+    else if(t==='word_bank_gap'){const gs=exState.gapState[i];const gaps=ex.gaps||[];const allRight=gaps.every((g,gi)=>gs&&gs.filled[gi]&&gs.filled[gi].toLowerCase()===g.toLowerCase());if(allRight)correct++;}
+    else if(t==='dropdown_gap'){const gs=exState.gapState[i]||{};if(parseInt(gs[0])===parseInt(ex.ans))correct++;}
+    else if(t==='matching_headings'){const m=ans||{};const allRight=(ex.paragraphs||[]).every((p,pi)=>m[pi]===p.ans);if(allRight)correct++;}
+    else if(t==='image_match'){const m=ans||{};const allRight=(ex.items||[]).every((it,ii)=>m[ii]===it.ans);if(allRight)correct++;}
+  });
+  const pct=scored.length>0?Math.round(correct/scored.length*100):null;
+  if(pct!==null){
+    currentUser.scores[currentUnit.id]=pct;
+    currentUser.lastActivity=new Date().toISOString();
+    currentUser.streak=Math.max(currentUser.streak||0,1);
+    const idx=APP.users.findIndex(u=>u.id===currentUser.id);
+    if(idx>=0)APP.users[idx]=currentUser;
+    saveData();
+  }
+}
+function renderScoreHTML(){
+  const scored=(currentUnit.exercises||[]).filter(e=>canonType(e.type)!=='short_answer');
+  if(!scored.length)return'';
+  const pct=(currentUser.scores||{})[currentUnit.id];
+  if(pct===undefined)return'';
+  let msg='',emoji='';
+  if(pct===100){msg='🌟 Perfect! Excellent work!';emoji='🎉'}
+  else if(pct>=80){msg='Great job! Keep it up!';emoji='😊'}
+  else if(pct>=50){msg='Good effort! Try again to improve.';emoji='💪'}
+  else{msg='Keep practising – you can do it!';emoji='📚'}
+  return`<div class="score-display"><div class="score-big">${emoji} ${pct}%</div><div class="score-msg">${msg}</div><br>
+    <button class="btn btn-secondary" onclick="openUnit('${currentUnit.id}')">🔄 Try Again</button> 
+    <button class="btn btn-primary" onclick="openLevel('${currentUnit.level}')">📂 Back to Units</button></div>`;
+}
+function submitWriting(wi){
+  const el=document.getElementById('write_'+wi);
+  const text=el?el.value.trim():'';
+  if(!text){alert('Please write something first.');return}
+  exState.answers['w'+wi]=text;
+  APP.submissions.push({id:'sub'+Date.now(),studentId:currentUser.id,unitId:currentUnit.id,text,date:new Date().toISOString(),grade:null,feedback:''});
+  currentUser.scores[currentUnit.id]='pending';
+  const idx=APP.users.findIndex(u=>u.id===currentUser.id);
+  if(idx>=0)APP.users[idx]=currentUser;
+  saveData();renderExercise();
+}
+
+// ============================================================
+// TEACHER PANEL
+// ============================================================
+let teacherTab='students';
+function renderTeacher(){
+  const tabs=[{k:'students',l:'👥 Students'},{k:'results',l:'📊 Results'},{k:'content',l:'📝 Content'},{k:'announcements',l:'📢 Announcements'}];
+  const tabsHTML=tabs.map(t=>`<button class="teacher-tab ${t.k===teacherTab?'active':''}" onclick="setTeacherTab('${t.k}')">${t.l}</button>`).join('');
+  let body='';
+  if(teacherTab==='students')body=renderStudentsTab();
+  else if(teacherTab==='results')body=renderResultsTab();
+  else if(teacherTab==='content')body=renderContentTab();
+  else if(teacherTab==='announcements')body=renderAnnouncementsTab();
+  document.getElementById('teacherContent').innerHTML=`
+    <div class="card"><div class="card-title">⚙️ Teacher Panel – Iria</div>
+      <div class="teacher-tabs">${tabsHTML}</div>${body}
+    </div>
+    <div style="margin-top:16px"><button class="btn btn-danger btn-sm" onclick="resetData()">🔄 Reset Demo Data</button></div>`;
+}
+function setTeacherTab(t){teacherTab=t;renderTeacher()}
+
+// ---- STUDENTS TAB ----
+function renderStudentsTab(){
+  const students=APP.users.filter(u=>u.role==='student');
+  const rows=students.map(s=>{
+    const lvl=APP.levels.find(l=>l.id===s.level);
+    const done=Object.keys(s.scores||{}).length;
+    return`<tr><td><strong>${s.name}</strong></td><td>${s.username}</td><td><span class="badge badge-pink">${lvl?lvl.name:'–'}</span></td><td>${done} units</td><td>🔥 ${s.streak||0}</td>
+      <td><button class="btn btn-secondary btn-xs" onclick="editStudent('${s.id}')">✏️</button> <button class="btn btn-danger btn-xs" onclick="deleteStudent('${s.id}')">🗑️</button> <button class="btn btn-secondary btn-xs" onclick="viewProgress('${s.id}')">📊</button></td></tr>`;
+  }).join('');
+  return`<button class="btn btn-primary btn-sm" style="margin-bottom:14px" onclick="addStudent()">➕ Add Student</button>
+    <table class="data-table"><thead><tr><th>Name</th><th>Username</th><th>Level</th><th>Progress</th><th>Streak</th><th>Actions</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+// ---- RESULTS TAB ----
+function renderResultsTab(){
+  const subs=APP.submissions.slice().reverse();
+  const subRows=subs.map(s=>{
+    const st=APP.users.find(u=>u.id===s.studentId);const unit=APP.units.find(u=>u.id===s.unitId);
+    return`<tr><td>${st?st.name:'?'}</td><td>${unit?unit.title:'?'}</td><td>${new Date(s.date).toLocaleDateString()}</td>
+      <td>${s.grade!==null?`<span class="badge badge-green">${s.grade}/10</span>`:'<span class="badge badge-orange">Pending</span>'}</td>
+      <td><button class="btn btn-secondary btn-xs" onclick="gradeSubmission('${s.id}')">📝 Grade</button></td></tr>`;
+  }).join('');
+  let autoRows='';
+  APP.users.filter(u=>u.role==='student').forEach(st=>{
+    Object.entries(st.scores||{}).forEach(([k,v])=>{
+      if(v==='pending')return;const unit=APP.units.find(u=>u.id===k);if(!unit)return;
+      autoRows+=`<tr><td>${st.name}</td><td>${unit.title}</td><td><span class="badge badge-pink">${v}%</span></td></tr>`;
+    });
+  });
+  return`<h3 class="section-divider">✏️ Writing Submissions</h3>
+    <table class="data-table"><thead><tr><th>Student</th><th>Unit</th><th>Date</th><th>Grade</th><th>Action</th></tr></thead>
+    <tbody>${subRows||'<tr><td colspan="5" style="text-align:center;color:var(--text2)">No submissions yet</td></tr>'}</tbody></table>
+    <h3 class="section-divider" style="margin-top:20px">📊 Auto-graded Scores</h3>
+    <table class="data-table"><thead><tr><th>Student</th><th>Unit</th><th>Score</th></tr></thead>
+    <tbody>${autoRows||'<tr><td colspan="3" style="text-align:center;color:var(--text2)">No scores yet</td></tr>'}</tbody></table>
+    <br><button class="btn btn-secondary btn-sm" onclick="exportCSV()">📥 Export CSV</button>`;
+}
+
+// ---- CONTENT TAB ----
+let _cLvl='a1adults',_cSk='vocab';
+function renderContentTab(){
+  const levelOpts=APP.levels.map(l=>`<option value="${l.id}" ${l.id===_cLvl?'selected':''}>${l.name}</option>`).join('');
+  const skillOpts=['vocab','grammar','reading','listening','writing'].map(s=>`<option value="${s}" ${s===_cSk?'selected':''}>${s}</option>`).join('');
+  const units=APP.units.filter(u=>u.level===_cLvl&&u.skill===_cSk).sort((a,b)=>a.order-b.order);
+  const rows=units.map(u=>`<tr>
+    <td>${u.order}</td><td>${u.title}</td>
+    <td>${u.published?'<span class="badge badge-green">Published</span>':'<span class="badge badge-orange">Hidden</span>'}</td>
+    <td>${(u.exercises||[]).length}</td>
+    <td>${u.externalLink?`<a href="${u.externalLink}" target="_blank" style="color:var(--red2);font-size:12px">🔗 Link</a>`:'–'}</td>
+    <td>
+      <button class="btn btn-secondary btn-xs" onclick="editUnit('${u.id}')">✏️</button>
+      <button class="btn btn-${u.published?'secondary':'primary'} btn-xs" onclick="togglePublish('${u.id}')">${u.published?'🙈 Hide':'👁 Show'}</button>
+      <button class="btn btn-danger btn-xs" onclick="deleteUnit('${u.id}')">🗑️</button>
+    </td></tr>`).join('');
+  return`<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:flex-end">
+    <div><label style="font-size:12px;font-weight:700;color:var(--text2);display:block;margin-bottom:4px">Level</label>
+    <select class="fill-input" style="width:auto;padding:8px 12px" onchange="_cLvl=this.value;renderTeacher()">${levelOpts}</select></div>
+    <div><label style="font-size:12px;font-weight:700;color:var(--text2);display:block;margin-bottom:4px">Skill</label>
+    <select class="fill-input" style="width:auto;padding:8px 12px" onchange="_cSk=this.value;renderTeacher()">${skillOpts}</select></div>
+    <button class="btn btn-primary btn-sm" onclick="createUnit('${_cLvl}','${_cSk}')">➕ New Unit</button>
+  </div>
+  <table class="data-table"><thead><tr><th>#</th><th>Title</th><th>Status</th><th>Exercises</th><th>Link</th><th>Actions</th></tr></thead>
+  <tbody>${rows||'<tr><td colspan="6" style="text-align:center;color:var(--text2)">No units found</td></tr>'}</tbody></table>`;
+}
+
+// ---- ANNOUNCEMENTS TAB (with edit & delete) ----
+function renderAnnouncementsTab(){
+  const rows=APP.announcements.map(a=>`<tr>
+    <td><strong>${a.title}</strong></td>
+    <td style="max-width:200px;font-size:13px">${a.text.substring(0,60)}${a.text.length>60?'...':''}</td>
+    <td><span class="badge badge-pink">${a.target==='all'?'Everyone':APP.users.find(u=>u.id===a.target)?.name||a.target}</span></td>
+    <td>
+      <button class="btn btn-secondary btn-xs" onclick="editAnnouncement('${a.id}')">✏️</button>
+      <button class="btn btn-danger btn-xs" onclick="deleteAnn('${a.id}')">🗑️</button>
+    </td></tr>`).join('');
+  return`<button class="btn btn-primary btn-sm" style="margin-bottom:14px" onclick="addAnnouncement()">➕ New Announcement</button>
+    <table class="data-table"><thead><tr><th>Title</th><th>Message</th><th>Target</th><th>Actions</th></tr></thead>
+    <tbody>${rows||'<tr><td colspan="4" style="text-align:center;color:var(--text2)">No announcements</td></tr>'}</tbody></table>`;
+}
+
+// ============================================================
+// MODALS
+// ============================================================
+function openModal(html){document.getElementById('modalContent').innerHTML=html;document.getElementById('modalOverlay').classList.add('open')}
+function closeModalOutside(e){if(e.target===document.getElementById('modalOverlay'))closeModal()}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('open')}
+
+// ---- STUDENT MODALS ----
+function addStudent(){
+  const lo=APP.levels.map(l=>`<option value="${l.id}">${l.name}</option>`).join('');
+  openModal(`<div class="modal-title">➕ Add Student</div>
+    <div class="form-group"><label>Full Name</label><input id="mName" placeholder="e.g. Carlos"/></div>
+    <div class="form-group"><label>Username</label><input id="mUser" placeholder="e.g. carlos"/></div>
+    <div class="form-group"><label>Password</label><input id="mPass" type="password" placeholder="password"/></div>
+    <div class="form-group"><label>Level</label><select id="mLevel">${lo}</select></div>
+    <button class="btn btn-primary" onclick="saveNewStudent()">💾 Save</button>`);
+}
+function saveNewStudent(){
+  const name=v('mName'),user=v('mUser'),pass=v('mPass');
+  if(!name||!user||!pass){alert('Please fill all fields.');return}
+  if(APP.users.find(u=>u.username===user)){alert('Username already exists!');return}
+  APP.users.push({id:'s'+Date.now(),name,username:user,password:pass,role:'student',level:document.getElementById('mLevel').value,streak:0,lastActivity:null,scores:{}});
+  saveData();closeModal();renderTeacher();
+}
+function editStudent(id){
+  const s=APP.users.find(u=>u.id===id);if(!s)return;
+  const lo=APP.levels.map(l=>`<option value="${l.id}" ${l.id===s.level?'selected':''}>${l.name}</option>`).join('');
+  openModal(`<div class="modal-title">✏️ Edit: ${s.name}</div>
+    <div class="form-group"><label>Full Name</label><input id="mName" value="${s.name}"/></div>
+    <div class="form-group"><label>Username</label><input id="mUser" value="${s.username}"/></div>
+    <div class="form-group"><label>New Password (blank = keep current)</label><input id="mPass" type="password" placeholder="(unchanged)"/></div>
+    <div class="form-group"><label>Level</label><select id="mLevel">${lo}</select></div>
+    <button class="btn btn-primary" onclick="saveEditStudent('${id}')">💾 Save Changes</button>`);
+}
+function saveEditStudent(id){
+  const idx=APP.users.findIndex(u=>u.id===id);if(idx<0)return;
+  APP.users[idx].name=v('mName');APP.users[idx].username=v('mUser');
+  const p=v('mPass');if(p)APP.users[idx].password=p;
+  APP.users[idx].level=document.getElementById('mLevel').value;
+  saveData();closeModal();renderTeacher();
+}
+function deleteStudent(id){
+  if(!confirm('Delete this student? This cannot be undone.'))return;
+  APP.users=APP.users.filter(u=>u.id!==id);saveData();renderTeacher();
+}
+function viewProgress(id){
+  const s=APP.users.find(u=>u.id===id);if(!s)return;
+  const rows=Object.entries(s.scores||{}).map(([k,val])=>{
+    const unit=APP.units.find(u=>u.id===k);
+    return`<tr><td>${unit?unit.title:k}</td><td>${val==='pending'?'<span class="pending-tag">Pending</span>':`<span class="badge badge-pink">${val}%</span>`}</td></tr>`;
+  }).join('');
+  const lvl=APP.levels.find(l=>l.id===s.level);
+  openModal(`<div class="modal-title">📊 Progress: ${s.name}</div>
+    <p style="color:var(--text2);margin-bottom:14px">Level: ${lvl?lvl.name:s.level} | Streak: 🔥${s.streak||0}</p>
+    <table class="data-table"><thead><tr><th>Unit</th><th>Score</th></tr></thead>
+    <tbody>${rows||'<tr><td colspan="2" style="text-align:center;color:var(--text2)">No activity yet</td></tr>'}</tbody></table>
+    <br><button class="btn btn-danger btn-sm" onclick="clearProgress('${id}')">🗑️ Clear Progress</button>`);
+}
+function clearProgress(id){
+  if(!confirm('Clear all progress for this student?'))return;
+  const idx=APP.users.findIndex(u=>u.id===id);if(idx>=0){APP.users[idx].scores={};APP.users[idx].streak=0;}
+  saveData();closeModal();renderTeacher();
+}
+
+// ---- ANNOUNCEMENT MODALS ----
+function annTargetOpts(sel){
+  const base=`<option value="all" ${sel==='all'?'selected':''}>Everyone</option>`;
+  const lvlOpts=APP.levels.map(l=>`<option value="${l.id}" ${sel===l.id?'selected':''}>Level: ${l.name}</option>`).join('');
+  const stuOpts=APP.users.filter(u=>u.role==='student').map(s=>`<option value="${s.id}" ${sel===s.id?'selected':''}>Student: ${s.name}</option>`).join('');
+  return base+lvlOpts+stuOpts;
+}
+function addAnnouncement(){
+  openModal(`<div class="modal-title">📢 New Announcement</div>
+    <div class="form-group"><label>Title</label><input id="annTitle" placeholder="Announcement title..."/></div>
+    <div class="form-group"><label>Message</label><textarea id="annText" placeholder="Your message..."></textarea></div>
+    <div class="form-group"><label>Target</label><select id="annTarget">${annTargetOpts('all')}</select></div>
+    <button class="btn btn-primary" onclick="saveNewAnnouncement()">📨 Post</button>`);
+}
+function saveNewAnnouncement(){
+  const title=v('annTitle'),text=v('annText');
+  if(!title||!text){alert('Please fill all fields.');return}
+  APP.announcements.push({id:'ann'+Date.now(),target:document.getElementById('annTarget').value,title,text,date:new Date().toISOString()});
+  saveData();closeModal();renderTeacher();renderDashboard&&currentUser?.role!=='teacher'&&renderDashboard();
+}
+function editAnnouncement(id){
+  const a=APP.announcements.find(x=>x.id===id);if(!a)return;
+  openModal(`<div class="modal-title">✏️ Edit Announcement</div>
+    <div class="form-group"><label>Title</label><input id="annTitle" value="${a.title}"/></div>
+    <div class="form-group"><label>Message</label><textarea id="annText">${a.text}</textarea></div>
+    <div class="form-group"><label>Target</label><select id="annTarget">${annTargetOpts(a.target)}</select></div>
+    <button class="btn btn-primary" onclick="saveEditAnn('${id}')">💾 Save Changes</button>`);
+}
+function saveEditAnn(id){
+  const idx=APP.announcements.findIndex(a=>a.id===id);if(idx<0)return;
+  APP.announcements[idx].title=v('annTitle');
+  APP.announcements[idx].text=v('annText');
+  APP.announcements[idx].target=document.getElementById('annTarget').value;
+  saveData();closeModal();renderTeacher();
+}
+function deleteAnn(id){
+  if(!confirm('Are you sure you want to delete this announcement?'))return;
+  APP.announcements=APP.announcements.filter(a=>a.id!==id);
+  saveData();renderTeacher();
+}
+
+// ---- GRADING ----
+function gradeSubmission(id){
+  const sub=APP.submissions.find(s=>s.id===id);if(!sub)return;
+  const st=APP.users.find(u=>u.id===sub.studentId);
+  openModal(`<div class="modal-title">📝 Grade Writing</div>
+    <p><strong>Student:</strong> ${st?st.name:'?'}</p>
+    <div style="background:var(--bg);border-radius:12px;padding:14px;margin:12px 0;font-size:14px;line-height:1.7;white-space:pre-wrap">${sub.text}</div>
+    <div class="form-group"><label>Grade (0–10)</label><input type="number" id="gGrade" min="0" max="10" value="${sub.grade!==null?sub.grade:''}"/></div>
+    <div class="form-group"><label>Feedback</label><textarea id="gFeedback">${sub.feedback||''}</textarea></div>
+    <button class="btn btn-primary" onclick="saveGrade('${id}')">💾 Save Grade</button>`);
+}
+function saveGrade(id){
+  const idx=APP.submissions.findIndex(s=>s.id===id);if(idx<0)return;
+  const g=parseInt(document.getElementById('gGrade').value)||0;
+  APP.submissions[idx].grade=g;APP.submissions[idx].feedback=v('gFeedback');
+  const sIdx=APP.users.findIndex(u=>u.id===APP.submissions[idx].studentId);
+  if(sIdx>=0)APP.users[sIdx].scores[APP.submissions[idx].unitId]=Math.round(g*10);
+  saveData();closeModal();renderTeacher();
+}
+
+// ---- UNIT MODALS ----
+function togglePublish(id){
+  const idx=APP.units.findIndex(u=>u.id===id);if(idx<0)return;
+  APP.units[idx].published=!APP.units[idx].published;saveData();renderTeacher();
+}
+function deleteUnit(id){
+  if(!confirm('Delete this unit?'))return;APP.units=APP.units.filter(u=>u.id!==id);saveData();renderTeacher();
+}
+function createUnit(level,skill){
+  const lo=APP.levels.map(l=>`<option value="${l.id}" ${l.id===level?'selected':''}>${l.name}</option>`).join('');
+  const so=['vocab','grammar','reading','listening','writing'].map(s=>`<option value="${s}" ${s===skill?'selected':''}>${s}</option>`).join('');
+  openModal(`<div class="modal-title">➕ Create Unit</div>
+    <div class="form-group"><label>Title</label><input id="uTitle" placeholder="Unit title..."/></div>
+    <div class="form-group"><label>Description</label><input id="uDesc" placeholder="Short description..."/></div>
+    <div class="form-group"><label>Level</label><select id="uLevel">${lo}</select></div>
+    <div class="form-group"><label>Skill</label><select id="uSkill">${so}</select></div>
+    <div class="form-group"><label>External Resource Link (optional)</label><input id="uLink" type="url" placeholder="https://youtube.com/..."/><div class="form-hint">YouTube, audio, or any valid URL. Opens in new tab for students.</div></div>
+    <button class="btn btn-primary" onclick="saveNewUnit()">💾 Create Unit</button>`);
+}
+function saveNewUnit(){
+  const title=v('uTitle');if(!title){alert('Please enter a title.');return}
+  const level=document.getElementById('uLevel').value;const skill=document.getElementById('uSkill').value;
+  const existing=APP.units.filter(u=>u.level===level&&u.skill===skill);
+  APP.units.push({id:level+'_'+skill+'_'+Date.now(),level,skill,title,description:v('uDesc'),order:existing.length+1,published:true,externalLink:v('uLink'),exercises:[]});
+  saveData();closeModal();renderTeacher();
+}
+
+// ---- UNIT EDITOR ----
+function editUnit(id){
+  const u=APP.units.find(x=>x.id===id);if(!u)return;
+  const exList=(u.exercises||[]).map((ex,i)=>{
+    const t=canonType(ex.type);const inf=EX_TYPES[t]||{label:t,icon:'❓'};
+    return`<div class="ex-list-item"><div class="ex-q">${inf.icon} <strong>${inf.label}</strong>: ${ex.q||ex.sentence||'(no question text)'}</div>
+      <div style="display:flex;gap:4px;flex-shrink:0"><span class="ex-type">${t}</span><button class="btn btn-danger btn-xs" onclick="removeEx('${id}',${i})">✕</button></div></div>`;
+  }).join('');
+  // Type options grouped
+  const typeGroups=['Basic','Interactive','Cambridge'];
+  const typeOptsHTML=typeGroups.map(g=>{
+    const opts=Object.entries(EX_TYPES).filter(([,v])=>v.group===g).map(([k,v])=>`<option value="${k}">${v.icon} ${v.label}</option>`).join('');
+    return`<optgroup label="── ${g} ──">${opts}</optgroup>`;
+  }).join('');
+  openModal(`<div class="modal-title">✏️ Edit Unit: ${u.title}</div>
+    <div class="form-group"><label>Title</label><input id="euTitle" value="${u.title}"/></div>
+    <div class="form-group"><label>Description</label><input id="euDesc" value="${u.description||''}"/></div>
+    <div class="form-group"><label>External Resource Link (optional)</label><input id="euLink" type="url" value="${u.externalLink||''}" placeholder="https://..."/><div class="form-hint">Link opens in new tab for students (YouTube, audio, website, etc.)</div></div>
+    ${u.skill==='reading'?`<div class="form-group"><label>Reading Text</label><textarea id="euText" style="min-height:120px">${u.text||''}</textarea></div>`:''}
+    <button class="btn btn-success btn-sm" style="margin-bottom:14px" onclick="saveUnitMeta('${id}')">💾 Save Info</button>
+    <h3 class="section-divider">Exercises (${(u.exercises||[]).length})</h3>
+    <div id="euExList">${exList||'<p style="color:var(--text2);font-size:13px">No exercises yet.</p>'}</div>
+    <h3 class="section-divider" style="margin-top:16px">➕ Add Exercise</h3>
+    <div class="form-group"><label>Exercise Type 
+      <span class="tooltip-wrap"><span class="tooltip-icon">?</span><span class="tooltip-text">Choose the type of question for this exercise</span></span>
+    </label>
+    <select id="euType" onchange="renderExTypeFields()" class="fill-input">${typeOptsHTML}</select></div>
+    <div id="euTypeFields"></div>
+    <div id="euPreview" class="preview-box" style="display:none"><h4>👁 Preview</h4><div id="euPreviewContent"></div></div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="btn btn-secondary btn-sm" onclick="previewEx()">👁 Preview</button>
+      <button class="btn btn-primary btn-sm" onclick="addExToUnit('${id}')">➕ Add Exercise</button>
+    </div>`);
+  renderExTypeFields();
+}
+function saveUnitMeta(id){
+  const idx=APP.units.findIndex(u=>u.id===id);if(idx<0)return;
+  APP.units[idx].title=v('euTitle');APP.units[idx].description=v('euDesc');APP.units[idx].externalLink=v('euLink');
+  if(document.getElementById('euText'))APP.units[idx].text=v('euText');
+  saveData();editUnit(id);
+}
+function removeEx(id,i){
+  const idx=APP.units.findIndex(u=>u.id===id);if(idx<0)return;
+  APP.units[idx].exercises.splice(i,1);saveData();editUnit(id);
+}
+
+function renderExTypeFields(){
+  const type=document.getElementById('euType')?.value||'multiple_choice';
+  const inf=EX_TYPES[type];
+  let html=`<div class="type-fields"><p style="font-size:12px;color:var(--text2);margin-bottom:12px">${inf?inf.icon+' '+inf.desc:''}</p>`;
+  // Common question field
+  const noQ=['word_formation','key_word_transformation'];
+  if(!noQ.includes(type))html+=`<div class="form-group"><label>Question / Instruction</label><input id="exQ" placeholder="Question text..."/></div>`;
+  // Type-specific fields
+  if(type==='multiple_choice'||type==='multiple_choice_reading'){
+    html+=`<div class="form-group"><label>Options (one per line)</label><textarea id="exOpts" placeholder="Option A\nOption B\nOption C\nOption D" style="min-height:80px"></textarea></div>
+    <div class="form-group"><label>Correct Answer (0 = first option)</label><input id="exAns" type="number" min="0" placeholder="0"/></div>`;
+  } else if(type==='true_false'){
+    html+=`<div class="form-group"><label>Answer</label><select id="exAns"><option value="true">True</option><option value="false">False</option></select></div>`;
+  } else if(['fill_blank','open_cloze','error_correction'].includes(type)){
+    html+=`<div class="form-group"><label>Correct Answer</label><input id="exAns" placeholder="Exact correct answer..."/></div>`;
+    if(type==='error_correction')html+=`<div class="form-group"><label>Error Word (word to underline)</label><input id="exErr" placeholder="The incorrect word in sentence..."/></div>`;
+  } else if(type==='word_formation'){
+    html+=`<div class="form-group"><label>Sentence (with ___ for gap)</label><input id="exQ" placeholder="She is a ___ journalist."/></div>
+    <div class="form-group"><label>Base Word (ALL CAPS)</label><input id="exBase" placeholder="e.g. TALENT"/></div>
+    <div class="form-group"><label>Correct Form</label><input id="exAns" placeholder="e.g. talented"/></div>`;
+  } else if(type==='key_word_transformation'){
+    html+=`<div class="form-group"><label>Original Sentence</label><input id="exQ" placeholder="Original sentence..."/></div>
+    <div class="form-group"><label>Keyword</label><input id="exKey" placeholder="e.g. FROM"/></div>
+    <div class="form-group"><label>Model Answer</label><input id="exAns" placeholder="Rewritten sentence..."/></div>`;
+  } else if(type==='sentence_order'){
+    html+=`<div class="form-group"><label>Words (space-separated)</label><input id="exWords" placeholder="e.g. She works in a hospital"/></div>
+    <div class="form-group"><label>Correct Sentence</label><input id="exAns" placeholder="She works in a hospital"/></div>`;
+  } else if(type==='drag_match'){
+    html+=`<div class="form-group"><label>Pairs (one per line: Left | Right)</label><textarea id="exPairs" placeholder="Spain | Spanish\nItaly | Italian\nFrance | French" style="min-height:80px"></textarea></div>`;
+  } else if(type==='word_bank_gap'){
+    html+=`<div class="form-group"><label>Sentence (use ___ for each gap)</label><input id="exSent" placeholder="She ___ to work every day."/></div>
+    <div class="form-group"><label>All Words for Bank (comma-separated)</label><input id="exWords" placeholder="goes, go, gone, going"/></div>
+    <div class="form-group"><label>Correct Answers in Order (comma-separated)</label><input id="exAns" placeholder="goes"/></div>`;
+  } else if(type==='dropdown_gap'){
+    html+=`<div class="form-group"><label>Sentence parts (use [opt1|opt2|opt3] for dropdowns)</label><input id="exSent" placeholder='He [go|goes|going] to school.'/></div>
+    <div class="form-group"><label>Correct Option Index (0-based)</label><input id="exAns" type="number" min="0" placeholder="1"/></div>`;
+  } else if(type==='matching_headings'){
+    html+=`<div class="form-group"><label>Headings (one per line)</label><textarea id="exHeadings" placeholder="A heading\nAnother heading" style="min-height:60px"></textarea></div>
+    <div class="form-group"><label>Paragraphs with correct heading index (format: 0|paragraph text...)</label><textarea id="exParas" placeholder="0|The first paragraph...\n1|The second paragraph..." style="min-height:80px"></textarea></div>`;
+  } else if(type==='short_answer'){
+    html+=`<div class="form-hint" style="margin-top:-8px;margin-bottom:8px">Short answer tasks go to the teacher for manual grading.</div>`;
+  } else {
+    html+=`<div class="form-group"><label>Correct Answer</label><input id="exAns" placeholder="Correct answer..."/></div>`;
+  }
+  html+='</div>';
+  document.getElementById('euTypeFields').innerHTML=html;
+  document.getElementById('euPreview').style.display='none';
+}
+
+function previewEx(){
+  const ex=buildExFromForm();if(!ex)return;
+  document.getElementById('euPreview').style.display='block';
+  document.getElementById('euPreviewContent').innerHTML=renderQuestionHTML(ex,0);
+}
+
+function buildExFromForm(){
+  const type=document.getElementById('euType')?.value||'multiple_choice';
+  const q=v('exQ');const ans=v('exAns');
+  const ex={type,q};
+  if(type==='multiple_choice'||type==='multiple_choice_reading'){
+    const opts=(v('exOpts')||'').split('\n').map(s=>s.trim()).filter(Boolean);
+    if(!opts.length){alert('Please add options.');return null}
+    ex.opts=opts;ex.ans=parseInt(ans)||0;
+  } else if(type==='true_false'){
+    ex.ans=document.getElementById('exAns')?.value==='true';
+  } else if(['fill_blank','open_cloze','short_answer'].includes(type)){
+    ex.ans=ans;
+  } else if(type==='error_correction'){
+    ex.ans=ans;ex.errorWord=v('exErr');
+  } else if(type==='word_formation'){
+    ex.baseWord=v('exBase');ex.ans=ans;
+  } else if(type==='key_word_transformation'){
+    ex.original=q;ex.keyword=v('exKey');ex.ans=ans;
+  } else if(type==='sentence_order'){
+    ex.words=(v('exWords')||'').split(' ').filter(Boolean);ex.ans=ans;
+  } else if(type==='drag_match'){
+    ex.pairs=(v('exPairs')||'').split('\n').map(l=>l.split('|').map(s=>s.trim())).filter(p=>p.length===2);
+  } else if(type==='word_bank_gap'){
+    ex.sentence=v('exSent');ex.words=(v('exWords')||'').split(',').map(s=>s.trim()).filter(Boolean);ex.gaps=(ans||'').split(',').map(s=>s.trim()).filter(Boolean);
+  } else if(type==='dropdown_gap'){
+    ex.sentence=(v('exSent')||'').split(/(\[.*?\])/).filter(Boolean);ex.ans=parseInt(ans)||0;
+  } else if(type==='matching_headings'){
+    ex.headings=(v('exHeadings')||'').split('\n').map(s=>s.trim()).filter(Boolean);
+    ex.paragraphs=(v('exParas')||'').split('\n').map(l=>{const[a,...rest]=l.split('|');return{ans:parseInt(a)||0,text:rest.join('|').trim()};}).filter(p=>p.text);
+  } else {
+    ex.ans=ans;
+  }
+  return ex;
+}
+
+function addExToUnit(id){
+  const ex=buildExFromForm();if(!ex)return;
+  const idx=APP.units.findIndex(u=>u.id===id);if(idx<0)return;
+  if(!APP.units[idx].exercises)APP.units[idx].exercises=[];
+  APP.units[idx].exercises.push(ex);
+  saveData();editUnit(id);
+}
+
+// ---- CSV EXPORT ----
+function exportCSV(){
+  let csv='Student,Unit,Skill,Score\n';
+  APP.users.filter(u=>u.role==='student').forEach(st=>{
+    Object.entries(st.scores||{}).forEach(([k,v])=>{
+      const unit=APP.units.find(u=>u.id===k);
+      csv+=`"${st.name}","${unit?unit.title:k}","${unit?unit.skill:''}","${v}"\n`;
+    });
+  });
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='ech_results.csv';a.click();
+}
+
+// ============================================================
+// HELPERS
+// ============================================================
+function v(id){const el=document.getElementById(id);return el?el.value.trim():''}
+function shuffleArr(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b}
+</script>
+</body>
+</html>
