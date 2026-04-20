@@ -15,17 +15,17 @@
   --text:#5a3a4a;--text2:#8a6070;--bg:#fff9fb;
 }
 body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--pink1)}::-webkit-scrollbar-thumb{background:var(--red1);border-radius:3px}
+::-webkit-scrollbar{wth:6px}::-webkit-scrollbar-track{background:var(--pink1)}::-webkit-scrollbar-thumb{background:var(--red1);border-radius:3px}
 .section{display:none;animation:fadeIn .4s ease}.section.active{display:block}
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 /* LOGIN */
 #loginSection{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--pink1) 0%,var(--pink2) 50%,var(--red1) 100%)}
-.login-box{background:var(--white);border-radius:30px;padding:50px 40px;max-width:420px;width:90%;box-shadow:0 20px 60px rgba(255,107,129,0.3);text-align:center}
+.login-box{background:var(--white);border-radius:30px;padding:50px 40px;max-wth:420px;wth:90%;box-shadow:0 20px 60px rgba(255,107,129,0.3);text-align:center}
 .login-logo{font-size:52px;margin-bottom:10px}.login-title{font-size:28px;font-weight:800;color:var(--red2);margin-bottom:5px}
 .login-subtitle{color:var(--text2);font-size:14px;margin-bottom:30px}
 .input-group{margin-bottom:18px;text-align:left}
 .input-group label{display:block;font-weight:700;font-size:13px;color:var(--text2);margin-bottom:6px}
-.input-group input{width:100%;padding:12px 18px;border:2px solid var(--pink1);border-radius:12px;font-family:'Nunito',sans-serif;font-size:15px;outline:none;transition:.3s}
+.input-group input{wth:100%;padding:12px 18px;border:2px sol var(--pink1);border-radius:12px;font-family:'Nunito',sans-serif;font-size:15px;outline:none;transition:.3s}
 .input-group input:focus{border-color:var(--red1);box-shadow:0 0 0 3px rgba(255,143,163,0.2)}
 .btn{padding:13px 30px;border:none;border-radius:14px;font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;cursor:pointer;transition:.3s}
 .btn-primary{background:linear-gradient(135deg,var(--red1),var(--red2));color:#fff}
@@ -404,11 +404,11 @@ function loadData(){
   return {users:[
     {id:'teacher1',name:'Iria',username:'Iria',password:'1211',role:'teacher'},
     {id:'s1',name:'Bruno',username:'bruno',password:'bruno123',role:'student',level:'infantil',streak:3,lastActivity:null,scores:{}},
-    {id:'s2',name:'Mario',username:'mario',password:'mario123',role:'student',level:'primary12',streak:1,lastActivity:null,scores:{}},
+    {id:'s2',name:'Mario',username:'mario',password:'mario123',role:'student',level:'primary34',streak:1,lastActivity:null,scores:{}},
     {id:'s3',name:'Area',username:'area',password:'area123',role:'student',level:'primary34',streak:0,lastActivity:null,scores:{}},
-    {id:'s4',name:'Thiago',username:'thiago',password:'thiago123',role:'student',level:'primary12',streak:2,lastActivity:null,scores:{}},
-    {id:'s5',name:'Ale',username:'ale',password:'ale123',role:'student',level:'a1adults',streak:0,lastActivity:null,scores:{}},
-    {id:'s6',name:'Mar',username:'Mar',password:'4676',role:'student',level:'primary56',streak:1,lastActivity:null,scores:{}},
+    {id:'s4',name:'Thiago',username:'thiago',password:'thiago123',role:'student',level:'primary56',streak:2,lastActivity:null,scores:{}},
+    {id:'s5',name:'Ale',username:'ale',password:'ale123',role:'student',level:'primary56',streak:0,lastActivity:null,scores:{}},
+    {id:'s6',name:'Mar',username:'Mar',password:'4676',role:'student',level:'a1adults',streak:1,lastActivity:null,scores:{}},
   ],levels:LEVELS,units:buildDefaultUnits(),announcements:[{id:'ann1',target:'all',title:'Welcome to English Class Hub! 🌸',text:'Bienvenidos a nuestra clase virtual. Let\'s learn English together!',date:'2025-09-01'}],submissions:[]};
 }
 function migrateData(d){
