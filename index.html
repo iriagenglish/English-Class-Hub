@@ -351,6 +351,47 @@ function buildDefaultUnits(){
     ['vocab','grammar','reading','listening','writing'].forEach(sk=>{
       units.push({id:`a1adults_${sk}_${i}`,level:'a1adults',skill:sk,order:i,published:false,title:`Unit ${i} – Coming Soon`,description:'Your teacher will add content here soon.',externalLink:'',exercises:[]});
     });
+    units.push({
+    id: 'a1adults_airport_1',
+    level: 'a1adults',
+    skill: 'vocab',
+    order: 3,
+    published: true,
+    title: 'At the Airport ✈️',
+    description: 'Essential vocabulary for your next trip.',
+    externalLink: '',
+    exercises: [
+      {
+        type: 'multiple_choice',
+        q: 'Where do you go to show your passport and ticket?',
+        opts: ['The restaurant', 'Check-in desk', 'The parking lot', 'The gift shop'],
+        ans: 1
+      },
+      {
+        type: 'true_false',
+        q: 'The "Gate" is the place where you get on the plane.',
+        ans: true
+      },
+      {
+        type: 'fill_blank',
+        q: 'When the plane leaves the ground, it is called "take-___".',
+        ans: 'off'
+      },
+      {
+        type: 'word_bank_gap',
+        q: 'Complete the sentence.',
+        words: ['passport', 'suitcases', 'ticket', 'pilot'],
+        sentence: 'Please, show your ___ and your boarding pass.',
+        gaps: ['passport']
+      },
+      {
+        type: 'sentence_order',
+        q: 'Put in order: flight / is / My / late / very',
+        words: ['My', 'flight', 'is', 'very', 'late'],
+        ans: 'My flight is very late'
+      }
+    ]
+  });
   }
   return units;
 }
