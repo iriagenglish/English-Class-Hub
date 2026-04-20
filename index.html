@@ -351,6 +351,47 @@ function buildDefaultUnits(){
     ['vocab','grammar','reading','listening','writing'].forEach(sk=>{
       units.push({id:`a1adults_${sk}_${i}`,level:'a1adults',skill:sk,order:i,published:false,title:`Unit ${i} – Coming Soon`,description:'Your teacher will add content here soon.',externalLink:'',exercises:[]});
     });
+    units.push({
+    id: 'a1adults_airport_1',
+    level: 'a1adults',
+    skill: 'vocab',
+    order: 3,
+    published: true,
+    title: 'At the Airport ✈️',
+    description: 'Essential vocabulary for your next trip.',
+    externalLink: '',
+    exercises: [
+      {
+        type: 'multiple_choice',
+        q: 'Where do you go to show your passport and ticket?',
+        opts: ['The restaurant', 'Check-in desk', 'The parking lot', 'The gift shop'],
+        ans: 1
+      },
+      {
+        type: 'true_false',
+        q: 'The "Gate" is the place where you get on the plane.',
+        ans: true
+      },
+      {
+        type: 'fill_blank',
+        q: 'When the plane leaves the ground, it is called "take-___".',
+        ans: 'off'
+      },
+      {
+        type: 'word_bank_gap',
+        q: 'Complete the sentence.',
+        words: ['passport', 'suitcases', 'ticket', 'pilot'],
+        sentence: 'Please, show your ___ and your boarding pass.',
+        gaps: ['passport']
+      },
+      {
+        type: 'sentence_order',
+        q: 'Put in order: flight / is / My / late / very',
+        words: ['My', 'flight', 'is', 'very', 'late'],
+        ans: 'My flight is very late'
+      }
+    ]
+  });
   }
   return units;
 }
@@ -363,11 +404,11 @@ function loadData(){
   return {users:[
     {id:'teacher1',name:'Iria',username:'Iria',password:'1211',role:'teacher'},
     {id:'s1',name:'Bruno',username:'bruno',password:'bruno123',role:'student',level:'infantil',streak:3,lastActivity:null,scores:{}},
-    {id:'s2',name:'Mario',username:'mario',password:'mario123',role:'student',level:'primary12',streak:1,lastActivity:null,scores:{}},
+    {id:'s2',name:'Mario',username:'mario',password:'mario123',role:'student',level:'primary34',streak:1,lastActivity:null,scores:{}},
     {id:'s3',name:'Area',username:'area',password:'area123',role:'student',level:'primary34',streak:0,lastActivity:null,scores:{}},
-    {id:'s4',name:'Thiago',username:'thiago',password:'thiago123',role:'student',level:'primary12',streak:2,lastActivity:null,scores:{}},
-    {id:'s5',name:'Ale',username:'ale',password:'ale123',role:'student',level:'a1adults',streak:0,lastActivity:null,scores:{}},
-    {id:'s6',name:'Mar',username:'Mar',password:'4676',role:'student',level:'primary56',streak:1,lastActivity:null,scores:{}},
+    {id:'s4',name:'Thiago',username:'thiago',password:'thiago123',role:'student',level:'primary56',streak:2,lastActivity:null,scores:{}},
+    {id:'s5',name:'Ale',username:'ale',password:'ale123',role:'student',level:'primary34',streak:0,lastActivity:null,scores:{}},
+    {id:'s6',name:'Mar',username:'Mar',password:'4676',role:'student',level:'a1adults',streak:1,lastActivity:null,scores:{}},
   ],levels:LEVELS,units:buildDefaultUnits(),announcements:[{id:'ann1',target:'all',title:'Welcome to English Class Hub! 🌸',text:'Bienvenidos a nuestra clase virtual. Let\'s learn English together!',date:'2025-09-01'}],submissions:[]};
 }
 function migrateData(d){
